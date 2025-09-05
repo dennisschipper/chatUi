@@ -1,0 +1,10 @@
+ul.introSuggestionList {
+  display: flex;
+  flex-direction: column;
+  
+  li {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $borderColor;
+  }
+}

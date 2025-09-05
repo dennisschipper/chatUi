@@ -1,0 +1,26 @@
+.introSuggestion {
+  flex-direction: row;
+  cursor: pointer;
+  text-align: initial;
+  
+  .text {
+    flex: 1;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    font-size: 0.95em; // Hm
+
+    strong {
+      font-weight: 600;
+      color: darken($mainColor, 20%);
+    }
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}

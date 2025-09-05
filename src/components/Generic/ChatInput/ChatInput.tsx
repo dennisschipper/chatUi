@@ -1,0 +1,70 @@
+import { useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
+import TextareaAutosize from 'react-textarea-autosize'
+import { ChatInputControls } from './ChatInputControls'
+import { ChatSubmit } from '../Buttons/ChatSubmit'
+import { Placeholder } from 'src/components/Elements/ChatInput/Placeholder/Placeholder'
+
+interface IChatInputProps {
+  onSubmit: (value: string) => void
+  onChange?: (value: string) => void
+  placeholder?: string
+  controls?: ReactElement[]
+}
+
+export const ChatInput = (props: IChatInputProps) => {
+  const [value, setValue] = useState('')
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue)
+    props.onChange?.(newValue)
+  }
+
+  const handleSubmit = () => {
+    if (value.trim()) {
+      props.onSubmit(value.trim())
+      setValue('')
+    }
+  }
+
+  const onChange = (e: BaseSyntheticEvent) => handleChange(e.target.value)
+  const onKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (e) => {
+    e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSubmit())
+  }
+  const placeholder = props.placeholder || "Add a new item..."
+
+  const inputRef = useRef<HTMLTextAreaElement>(null)
+
+  const [ focused, updateFocused ] = useState<boolean>(false)
+  
+  const onPlaceholderClick = () => inputRef.current && inputRef.current.focus()
+
+  const onFocus = () => updateFocused(true)
+  const onBlur = () => updateFocused(false)
+
+  const submitDisabled = !value.trim()
+
+  return (
+    <div className="chatInput">
+      <div className="textInputContainer">
+        <Placeholder 
+          onClick={onPlaceholderClick} 
+          text={props.placeholder ?? "Type a message..."} 
+          active={!focused}
+        />
+        <TextareaAutosize
+          ref={inputRef}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          onKeyDown={onKeyDown}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+      </div>
+      <div className="inputControls">
+        <ChatInputControls customControls={props.controls} />
+        <ChatSubmit onClick={handleSubmit} disabled={submitDisabled} />
+      </div>
+    </div>
+  )
+}

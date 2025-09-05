@@ -1,0 +1,15 @@
+.popoverContentWrapper {
+  background: #fff;
+  border: 1px solid $mainColor;
+  border-radius: $space;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+
+  .popoverContent {
+    padding: $space;
+    height: 100%;
+    max-height: 400px;
+    overflow: auto;
+  }
+}

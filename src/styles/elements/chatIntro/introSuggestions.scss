@@ -1,0 +1,9 @@
+.introSuggestions {
+  font-size: 0.9em;
+  border: 1px solid $borderColor;
+  padding: 0 $space;
+  border-radius: $space;
+  background: radial-gradient(100% 100% at 100% 50%, #EFEFEF 0%, #EDEDED 100%);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+
+}

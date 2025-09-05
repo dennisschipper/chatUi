@@ -1,0 +1,41 @@
+.overflowScrollerWrapper {
+  position: relative;
+  width: calc(100% - 160px);
+  overflow: hidden;
+
+  &::before, &::after {
+    display: block;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    z-index: 1000;
+    top: 0;
+    transition: $transition;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #EFEFEF, rgba(255, 255, 255, 0));
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #EFEFEF, rgba(255, 255, 255, 0));
+  }
+  
+  &.left::before { opacity: 1; } // Only show when at least a bit of scrolling happened.
+  &.overflowing.right::after { opacity: 1} // Only show when not at the end of the scroll.
+}
+
+.overflowScroller {
+  width: 100%;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}

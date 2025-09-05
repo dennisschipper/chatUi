@@ -1,0 +1,58 @@
+// We want the buttons to be at least 44x44px for accesibility. We'll set the buttons
+// as that size, then place as children spans to handle the actual ui.
+.alsoExploreControls {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2000;
+  
+  button {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &.right { justify-content: flex-start; }
+
+    &:disabled { cursor: not-allowed; }
+
+    .body {
+      background: #fff;
+      flex: 1;
+      border: 1px solid $mainColor;
+      height: 100%;
+      max-width: 34px;
+      max-height: 34px;
+      border-radius: 99px;
+      position: relative;
+    }
+
+    .disk {
+      position: absolute;
+      left: calc(50% - 12px);
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 99px;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    
+    &.left .body {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-right: 0px;
+      .disk { background-image: url("src/assets/icons/chatIntro/chevronLeft.svg"); }
+    }
+
+    &.right .body {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-left: 0px;
+      .disk { background-image: url("src/assets/icons/chatIntro/chevronRight.svg"); }
+    }
+  }
+}

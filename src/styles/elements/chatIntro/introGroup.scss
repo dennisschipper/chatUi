@@ -1,0 +1,17 @@
+.introGroup {
+  border: 1px solid $borderColor;
+  padding: $space;
+  border-radius: $space;
+
+  header {
+    h2 {
+      font-size: 1em;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    p {
+      font-size: 0.9em;
+    }
+  }
+}

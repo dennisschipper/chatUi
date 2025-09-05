@@ -1,0 +1,33 @@
+button {
+  border-radius: $space;
+  background: #333;
+  color: #fff;
+  min-height: $uiMinHeight;
+  min-width: $uiMinHeight;
+  padding: 0 $space;
+}
+
+.blank {
+  display: flex;
+  border-radius: initial;
+  background: none;
+  color: inherit;
+  min-height: initial;
+  min-width: initial;
+  padding: 0;
+}
+
+button.flat {
+  display: inline;
+  border-radius: initial;
+  background: none;
+  color: inherit;
+  min-height: initial;
+  min-width: initial;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+@import 'userLocationRequest';
+@import 'chatSubmit';
