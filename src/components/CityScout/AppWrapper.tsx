@@ -5,6 +5,8 @@ import { ChatInput } from '../Generic'
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 
+import { ChatWrapper } from 'weaviate-agent-chat-ui'
+
 interface IAppWrapperProps {
   addChatEntry: (text: string) => void
 }
@@ -23,7 +25,7 @@ export const AppWrapper = (props: IAppWrapperProps) => {
   return (
     <AppContext.Provider value={{ appState, dispatch }}>
       <div className="appWrapper">  
-        <ChatContainer items={items} blockScrolling={true} maxItems={15} />
+        <ChatWrapper items={items} />
         <ChatInput onSubmit={addChatEntry} controls={controls} />
       </div>
     </AppContext.Provider>
