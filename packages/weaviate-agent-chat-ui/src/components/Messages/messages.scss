@@ -1,0 +1,71 @@
+.chatScroller {
+  padding: 50px;
+}
+
+.messageSource {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  .thumb {
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(50% 50% at 50% 50%, #EFEFEF 0%, #EEEEEA 100%);
+    box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.07);
+  }
+
+  .text {
+    opacity: 0.7;
+    font-size: 0.9em;
+  }
+}
+
+.message {
+  gap: 5px;
+  font-size: 0.9em;
+}
+
+.messageBody {
+  background: radial-gradient(50% 50% at 50% 50%, #EFEFEF 0%, #EEEEEA 100%);
+  box-shadow: 0px 10px 65px 10px rgba(0, 0, 0, 0.07);
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+// ToDo: Component
+hr {
+  width: auto;
+  min-height: 1px;
+  border: 0;
+  background: #DFDFDF;
+}
+
+
+
+
+.placeholder {
+  position: absolute;
+  top: calc(50% - 0.9em);
+  left: 10px;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+@import 'messageInput.scss';
+
+@import 'messageSuggestions.scss';
+@import 'messageSuggestion.scss';

@@ -3,15 +3,8 @@ import type { IAppState } from "../types"
 import { addChatEntryAction, resetChatAction, setUserLocationAction, clearUserLocationAction, type TActions } from "./storeActions"
 
 export const initialState: IAppState = {
-  chat: {
-    // entries: [
-    //   { from: "Test", text: "Test", type: "text"}, { from: "Test", text: "Test", type: "text"}, { from: "Test", text: "Test", type: "text"},{ from: "Test", text: "Test", type: "text"},{ from: "Test", text: "Test", type: "text"},{ from: "Test", text: "Test", type: "text"}
-    // ],
-    entries: testFlatData
-  },
-  user: {
-    location: undefined
-  }
+  chat: { entries: testFlatData },
+  user: { location: undefined }
 }
 
 export const appReducer = (state: IAppState, action: TActions): IAppState => {

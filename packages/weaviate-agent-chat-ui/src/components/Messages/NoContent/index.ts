@@ -1,0 +1,1 @@
+export { MessagesNoContent } from './MessagesNoContent'

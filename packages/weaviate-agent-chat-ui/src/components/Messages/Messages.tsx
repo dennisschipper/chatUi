@@ -1,24 +1,23 @@
-import { ReactElement, useEffect, useRef, useState } from "react"
+import './messages.scss'
+import { ReactNode, useEffect, useRef, useState } from "react"
 import { LoadMoreChatsButton } from "./LoadMoreChatsButton"
 import { NewChatEntryNotification } from "./NewChatEntryNotification/NewChatEntryNotification"
-import { ChatContainerEmpty } from "./ChatContainerEmpty"
-import { ChatContainerList } from "./ChatContainerList"
+import { MessageList } from "./MessageList"
+import { NoContent } from "./NoContent/NoContent"
+import { IMessage } from '../../types'
+import { IMessageSuggestionsTitleProps } from '../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 
-interface IChatItem {
-  item: ReactElement 
-  id: string
-}
-
-interface IChatWrapperProps {
-  items: IChatItem[]
+export interface IMessagesProps {
   blockScrolling?: boolean
   maxItems?: number
+  messages: IMessage[]
+  noMessages?: { text?: string, component?: ReactNode }
+  
+  title?: IMessageSuggestionsTitleProps
 }
 
-export const ChatWrapper = (props: IChatWrapperProps) => {
-
+export const Messages = (props: IMessagesProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  
   const maxItems = props.maxItems ?? 50
   const [ maxVisibleItems, updateMaxVisibleItems ] = useState(maxItems)
   const [ newMessages, updateNewMessages ] = useState<boolean>(false)
@@ -32,38 +31,36 @@ export const ChatWrapper = (props: IChatWrapperProps) => {
   }
   
   useEffect(() => {
-    !props.blockScrolling && props.items.length > 0 && scrollToNewEntries()
-  }, [props.items.length, props.blockScrolling])
+    // (props.blockScrolling !== true && props.items.length > 0) && scrollToNewEntries()
+  }, [props.messages.length, props.blockScrolling])
 
   useEffect(() => {
-    props.items.length > 0 && scrollToNewEntries()
+    // This is too eager to fire off.
+    // props.items.length > 0 && scrollToNewEntries()
   }, [])
   
-  const prevItemsLength = useRef(props.items.length)
+  const prevItemsLength = useRef(props.messages.length)
   
   useEffect(() => {
     updateNewMessages(true)
     
     // If new items were added, increase maxVisibleItems by the number of new items
-    const newItemsCount = props.items.length - prevItemsLength.current
+    const newItemsCount = props.messages.length - prevItemsLength.current
     if (newItemsCount > 0) {
       updateMaxVisibleItems(prev => prev + newItemsCount)
     }
-    prevItemsLength.current = props.items.length
-  }, [props.items.length])
+    prevItemsLength.current = props.messages.length
+  }, [props.messages.length])
 
   // Show the last maxVisibleItems
-  const visibleItemsWithIds = props.items.slice(-maxVisibleItems)
-  const visibleItems = visibleItemsWithIds.map(item => item.item)
-  const visibleItemIds = visibleItemsWithIds.map(item => item.id)
-  const startIndex = Math.max(0, props.items.length - maxVisibleItems)
+  const startIndex = Math.max(0, props.messages.length - maxVisibleItems)
   
   const onClick = () => {
     updateMaxVisibleItems(maxVisibleItems + maxItems)
   }
   
-  const displayLoadMore = props.items.length > maxVisibleItems
-  const loadMoreCount = Math.min(maxItems, props.items.length - maxVisibleItems)
+  const displayLoadMore = props.messages.length > maxVisibleItems
+  const loadMoreCount = Math.min(maxItems, props.messages.length - maxVisibleItems)
 
   const onScroll = (event: React.UIEvent<HTMLDivElement>) => {
     const el = event.currentTarget
@@ -72,7 +69,7 @@ export const ChatWrapper = (props: IChatWrapperProps) => {
     fullyScrolled && updateNewMessages(false)
   }
 
-  const displayEmpty = props.items.length === 0
+  const displayEmpty = props.messages.length === 0
   const chatHeader = (
     <LoadMoreChatsButton 
       onClick={onClick} 
@@ -84,21 +81,25 @@ export const ChatWrapper = (props: IChatWrapperProps) => {
   const onClickEntryNotification = () => {
     scrollToNewEntries()
   }
+
+  const component = props.noMessages?.component
+  const text = props.noMessages?.text
   
   return (
-    <div className="chatContainer">
+    <div className="chatContainer messages">
       <NewChatEntryNotification 
         display={!fullyScrolled && newMessages && !!props.blockScrolling} 
         onClick={onClickEntryNotification} 
       />
-      <ChatContainerEmpty display={displayEmpty} />
-      <ChatContainerList 
+      <NoContent display={displayEmpty} text={text} component={component} />
+      <MessageList 
         ref={ref}
-        items={visibleItems} 
-        itemIds={visibleItemIds}
         startIndex={startIndex} 
         onScroll={onScroll} 
         header={chatHeader} 
+        displayMeta={true}
+        messages={props.messages}
+        title={props.title}
       />
     </div>
   )

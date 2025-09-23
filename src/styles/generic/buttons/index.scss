@@ -5,6 +5,7 @@ button {
   min-height: $uiMinHeight;
   min-width: $uiMinHeight;
   padding: 0 $space;
+  &:disabled { cursor: not-allowed; }
 }
 
 .blank {

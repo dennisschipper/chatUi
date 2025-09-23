@@ -1,5 +1,7 @@
+import type { IMessage } from "weaviate-agent-chat-ui";
+
 export interface IChat {
-  entries: IChatEntry[]
+  entries: IMessage[]
 }
 
 export interface IChatEntry {

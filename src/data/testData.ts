@@ -1,4 +1,4 @@
-import type { IChatEntry, IIntroGroup, IIntroSection, IIntroSuggestion, IIntroSuggestionMark } from "src/types";
+import type { IChatEntry, IIntroGroup, IIntroSuggestion, IIntroSuggestionMark } from "src/types";
 import star from 'src/assets/icons/chatIntro/star.svg'
 
 export const introSuggestionMarks: IIntroSuggestionMark[] = [
@@ -9,8 +9,6 @@ export const introSuggestions: IIntroSuggestion[] = [
   { id: "1", text: "What are the top 10 products by units sold this year?", highlights: ["top 10 products"] },
   { id: "2", text: "What percentage of total sales volume comes from the top 5 products?", highlights: ["total sales volume"] }
 ]
-
-
 
 export const introGroups: IIntroGroup[] = [
   {

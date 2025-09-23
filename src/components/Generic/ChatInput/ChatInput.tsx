@@ -2,7 +2,7 @@ import { useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, t
 import TextareaAutosize from 'react-textarea-autosize'
 import { ChatInputControls } from './ChatInputControls'
 import { ChatSubmit } from '../Buttons/ChatSubmit'
-import { Placeholder } from 'src/components/Elements/ChatInput/Placeholder/Placeholder'
+import { Placeholder } from 'weaviate-agent-chat-ui'
 
 interface IChatInputProps {
   onSubmit: (value: string) => void
