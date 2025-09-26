@@ -1,4 +1,4 @@
-import { introGroups, introSuggestionMarks, introSuggestions } from "src/data/testData"
+import { introGroups } from "src/data/testData"
 import { IntroSuggestions } from "./IntroSuggestions/IntroSuggestions"
 import { ContentPanel } from "src/components/Generic/ContentPanel/ContentPanel"
 import { ChatIntroHeader } from "./ChatIntroHeader/ChatIntroHeader"
