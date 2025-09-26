@@ -1,10 +1,9 @@
 import { useContext } from 'react'
 import { AppContext } from 'src/components/CityScout/AppContext/AppContext'
-import { ChatInput } from '../Generic'
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 
-import { Messages, type IMessage } from 'weaviate-agent-chat-ui'
+import { ChatInput, Messages, type IMessage } from 'weaviate-agent-chat-ui'
 
 interface IAppWrapperProps {
   addChatEntry: (text: string) => void

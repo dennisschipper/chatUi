@@ -1,20 +1,37 @@
 .chatInput {
-  flex-direction: row;
-  gap: $space;
-  align-items: flex-start;
+  border: 1px solid #fff;
+  background: #EEEEEA;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 65px 10px rgba(0, 0, 0, 0.07);
+
+  // Temp.
+  max-width: calc(100% - 100px);
+  width: 100%;
+  align-self: center;
+  align-items: stretch;
+  gap: 10px;
   
   .textInputContainer {
-    flex: 1;
+    border: 1px solid #3C4038;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    flex: 0 1;
     position: relative;
+    min-height: 50px;
+    background: #EDEDED;
   }
 
   textarea {
-    border: 1px solid $borderColor;
-    border-radius: $space;
+    border: 0;
     font-size: inherit;
-    min-height: $uiMinHeight;
     resize: none;
-    padding: calc($space / 2) $space;
+    background: none;
+    line-height: 30px;
+    padding: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 10px;
     &::placeholder { opacity: 0; }
   }
 }
