@@ -4,5 +4,13 @@ ul.chatContainerList {
   gap: 10px;
   align-items: stretch;
 
-  li { display: flex; }
+  > li { display: flex; }
+
+  > li .messageSuggestions {
+    display: none;
+  }
+
+  > li:last-of-type {
+    .messageSuggestions { display: initial; }
+  }
 }
