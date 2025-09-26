@@ -12,7 +12,7 @@ interface IAppWrapperProps {
 export const AppWrapper = (props: IAppWrapperProps) => {
   const { appState } = useContext(AppContext)
   const { addChatEntry } = props
-  const items: IMessage[] = appState.chat.entries.slice(0, 3)
+  const items: IMessage[] = appState.chat.entries.slice(0, 13)
   const controls = [ <UserLocationRequest />, <ChatOptions /> ]
 
   return (

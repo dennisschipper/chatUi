@@ -1,7 +1,7 @@
 import { useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { ChatInputControls } from './ChatInputControls'
-import { ChatSubmit } from '../../../../../src/components/Generic/Buttons/ChatSubmit'
+import { ChatSubmit } from '../Generic/ChatSubmit'
 import { Placeholder } from '../Generic/Placeholder/Placeholder'
 
 interface IChatInputProps {
@@ -60,10 +60,12 @@ export const ChatInput = (props: IChatInputProps) => {
           onFocus={onFocus}
           onBlur={onBlur}
         />
-      </div>
-      <div className="inputControls">
-        <ChatInputControls customControls={props.controls} />
+        <hr />
         <ChatSubmit onClick={handleSubmit} disabled={submitDisabled} />
+      </div>
+      <hr />
+      <div className="inputControls">
+        Powered by Weaviate
       </div>
     </div>
   )

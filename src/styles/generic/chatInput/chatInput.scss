@@ -20,9 +20,20 @@
     position: relative;
     min-height: 50px;
     background: #EDEDED;
+    flex-direction: row;
+    padding-right: 10px;
+
+    hr {
+      background: #D1D1D1;
+      width: 1px;
+      height: 100%;
+      max-height: calc(100% - 20px);
+      align-self: center;
+    }
   }
 
   textarea {
+    flex: 1;
     border: 0;
     font-size: inherit;
     resize: none;

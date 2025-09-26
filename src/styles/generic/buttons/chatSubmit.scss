@@ -1,3 +1,13 @@
 .chatSubmit {
-  
+  background: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  width: 48px;
+  padding: 0;
+
+  img {
+    opacity: 0.33;
+  }
 }

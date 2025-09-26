@@ -1,3 +1,5 @@
+import submit from '../../../assets/icons/submit.svg'
+
 interface IChatSubmitProps {
   onClick: () => void
   disabled?: boolean
@@ -6,7 +8,7 @@ interface IChatSubmitProps {
 export const ChatSubmit = (props: IChatSubmitProps) => {
   return (
     <button onClick={props.onClick} className="chatSubmit" disabled={props.disabled}>
-      Add Item
+      <img src={submit} alt="" />
     </button>
   )
 }
