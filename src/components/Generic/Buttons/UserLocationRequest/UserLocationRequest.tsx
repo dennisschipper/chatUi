@@ -1,18 +1,18 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { checkLocationPermission, type LocationPermissionState } from 'src/helpers/locationHelpers'
 import { Tooltip } from '../../Popovers'
-import { AppContext } from 'src/components/CityScout/AppContext/AppContext'
+import type { IUserLocation } from 'src/types';
 
 interface UserLocationRequestProps {
   active?: boolean;
+  location?: IUserLocation
+  updateLocation?: (location: IUserLocation | null) => void
 }
 
 export const UserLocationRequest = (props: UserLocationRequestProps) => {
   const { active = false } = props
-  const { appState, dispatch } = useContext(AppContext)
   const [permissionState, setPermissionState] = useState<LocationPermissionState>('unsupported')
-  
-  const hasLocation = !!appState.user.location
+  const hasLocation = !!props.location
 
   useEffect(() => {
     checkLocationPermission().then(setPermissionState);
@@ -23,7 +23,7 @@ export const UserLocationRequest = (props: UserLocationRequestProps) => {
       lat: location.coords.latitude,
       lon: location.coords.longitude
     }
-    dispatch({ type: 'setUserLocationAction', payload: { location: userLocation } })
+    props.updateLocation && props.updateLocation(userLocation)
   }
 
   const handleLocationError = (error: GeolocationPositionError) => {
@@ -32,7 +32,7 @@ export const UserLocationRequest = (props: UserLocationRequestProps) => {
 
   const onClick = () => {
     if (hasLocation) {
-      dispatch({ type: 'clearUserLocationAction' })
+      props.updateLocation && props.updateLocation(null)
       return
     }
 

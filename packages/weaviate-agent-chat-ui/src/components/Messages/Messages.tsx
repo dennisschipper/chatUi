@@ -12,7 +12,6 @@ export interface IMessagesProps {
   maxItems?: number
   messages: IMessage[]
   noMessages?: { text?: string, component?: ReactNode }
-  
   title?: IMessageSuggestionsTitleProps
 }
 
