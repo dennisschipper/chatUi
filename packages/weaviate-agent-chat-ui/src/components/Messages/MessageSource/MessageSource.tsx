@@ -1,13 +1,17 @@
-
 import { IMessageSource } from "../../../types"
+import { MessageSourceThumb } from "../../MessageSource/MessageSourceThumb/MessageSourceThumb"
 
-interface IMessageSourceProps extends IMessageSource {}
+interface IMessageSourceProps extends IMessageSource {
+
+}
 
 export const MessageSource = (props: IMessageSourceProps) => {
+  const { title, icon } = props
+  const className = `messageSource ${title === "You" ? 'right' : ''}`
   return (
-    <div className="messageSource">
-      <div className="thumb">{props.icon}</div>
-      <span className="text">{props.title}</span>
+    <div className={className}>
+      <MessageSourceThumb icon={icon} />
+      <span className="text">{title} said...</span>
     </div>
   )
 }

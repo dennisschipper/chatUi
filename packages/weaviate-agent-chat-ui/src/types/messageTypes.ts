@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export interface IMessageSource {
   title: string 
-  icon?: ReactNode
+  icon?: string
 }
 
 export interface IMessage {
