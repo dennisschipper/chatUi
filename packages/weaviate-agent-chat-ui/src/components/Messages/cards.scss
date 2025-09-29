@@ -3,30 +3,73 @@
 .cardSlider {
   padding: 0 50px;
   position: relative;
-
-.cardWrapper {
-  width: 100%;
-  overflow: auto;
-  mask-image: linear-gradient(to right, rgba(0,0,0,1) calc(100% - 50px), rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) calc(100% - 100px), rgba(0,0,0,0) calc(100% - 50px));
   mask-repeat: no-repeat;
   mask-size: calc(100% + 100px) 100%;
-  mask-position: -100px 0;
+  mask-position: 0px 0px;
   transition: mask-position 0.5s ease-in-out;
-  &.right { mask-position: 0 0; }
-}
+  &.left { mask-position: -100px 0px}
+
+  .cardWrapper {
+    padding: 20px 0px;
+    width: 100%;
+    overflow: auto;
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) calc(100% - 50px), rgba(0,0,0,0) 100%);
+    mask-repeat: no-repeat;
+    mask-size: calc(100% + 100px) 100%;
+    mask-position: -100px 0;
+    transition: mask-position 0.5s ease-in-out;
+    &.right { mask-position: 0 0; }
+  }
 
   ul {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: flex-end;
   }
 
   ul > li {
     display: flex;
     flex-shrink: 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 200px;
-    height: 200px;
-    background: rgba(0, 0, 0, 0.1);
+    width: 250px;
+  }
+}
+
+ol {
+  margin-top: 5px;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 4px;
+      height: 4px;
+      left: 6px;
+      top: 9px;
+      border-radius: 99px;
+      background: rgba(0, 0, 0, 0.33);
+    }
+  }
+}
+
+
+.card {
+  width: 100%;
+  background: #EEEEEA;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.96em;
+  line-height: 160%;
+  gap: 5px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 1.1em;
   }
 }

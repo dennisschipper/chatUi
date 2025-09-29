@@ -1,12 +1,13 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, ReactNode } from "react"
+import { Card } from "../Card/Card"
 
-export const Cards = () => {
-  const [ position, updatePosition ] = useState<{
-    i: number, left: boolean, right: boolean
-  }>({
-    i: 0,
-    left: false,
-    right: false
+interface ICardsProps {
+  cards: ReactNode[]
+}
+
+export const Cards = (props: ICardsProps) => {
+  const [ position, updatePosition ] = useState<{left: boolean, right: boolean}>({
+    left: false, right: false
   })
 
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -20,43 +21,27 @@ export const Cards = () => {
     const scrollLeft = wrapper.scrollLeft
     const maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth
 
-    updatePosition({
-      i: scrollLeft,
-      left: scrollLeft === 0,
-      right: scrollLeft >= maxScrollLeft
-    })
+    updatePosition({ left: scrollLeft === 0, right: scrollLeft >= maxScrollLeft })
   }
 
   useEffect(() => {
     updateScrollPosition()
   }, [])
 
-  const [ x, ux ] = useState<boolean>(false)
-
-
-  const className = `
-    cardWrapper 
-    ${position.left ? 'left' : ''} 
-    ${position.right ? 'right' : ''}
-    ${x ? 'x' : ''}
-  `
-
+  const cards = props.cards.map(
+    (card, i) => (
+      <li key={i}>
+        <Card>{card}</Card>
+      </li>
+    )
+  )
 
   return (
     <div>
-      <div>
-        <span onClick={() => ux(!x)}>left:{position.i}</span>
-        <span>full left: {String(position.left)}</span>
-        <span>full right: {String(position.right)}</span>
-      </div>
-      <div className={`cardSlider`}>
-        <div className={className} ref={wrapperRef} onScroll={updateScrollPosition}>
+      <div className={`cardSlider ${position.left ? 'left' : ''}`}>
+        <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
           <ul ref={ulRef}>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            {cards}
           </ul>
         </div>
       </div>

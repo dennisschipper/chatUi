@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
 
+export interface IRecentItem {
+  id?: string
+  text: string
+}
+
 export interface IMessageSource {
   title: string 
   icon?: string
