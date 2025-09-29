@@ -1,0 +1,32 @@
+
+
+.cardSlider {
+  padding: 0 50px;
+  position: relative;
+
+.cardWrapper {
+  width: 100%;
+  overflow: auto;
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) calc(100% - 50px), rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: calc(100% + 100px) 100%;
+  mask-position: -100px 0;
+  transition: mask-position 0.5s ease-in-out;
+  &.right { mask-position: 0 0; }
+}
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  ul > li {
+    display: flex;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

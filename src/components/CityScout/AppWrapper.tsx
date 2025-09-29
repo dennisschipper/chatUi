@@ -1,7 +1,7 @@
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 
-import { ChatInput, Messages, type IMessage } from 'weaviate-agent-chat-ui'
+import { ChatInput, Messages, Cards, type IMessage } from 'weaviate-agent-chat-ui'
 import { testFlatData } from 'src/data/testFlatData'
 
 interface IAppWrapperProps {
@@ -14,14 +14,14 @@ export const AppWrapper = (props: IAppWrapperProps) => {
   const controls = [ <UserLocationRequest />, <ChatOptions /> ]
 
   return (
-    <div className="appWrapper">  
-      <Messages 
-        maxItems={200} 
-        blockScrolling={true} 
-        messages={[]} 
+    <div className="appWrapper">
+      <Messages
+        maxItems={200}
+        blockScrolling={true}
+        messages={[]}
         title={{ text: "What's next?" }}
       />
-      <div>sdf</div>
+      <Cards />
       <ChatInput onSubmit={addChatEntry} controls={controls} />
     </div>
   )
