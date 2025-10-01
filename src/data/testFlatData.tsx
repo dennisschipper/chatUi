@@ -1,7 +1,12 @@
-import type { IMessage } from "weaviate-agent-chat-ui";
+import type { IMessage, IRecentItem } from "weaviate-agent-chat-ui";
 import user from '../../packages/weaviate-agent-chat-ui/src/assets/icons/user.svg'
 import ai from '../../packages/weaviate-agent-chat-ui/src/assets/icons/ai.svg'
 import type { ReactNode } from "react";
+
+export const recentItems: IRecentItem[] = [
+  { id: "1", text: "Established product volume declining" },
+  { id: "2", text: "New and established products projected sales." }
+]
 
 export const testFlatData: IMessage[] = Array.from({ length: 100 }, (_, index) => ({
   id: `test-${index + 1}`,
