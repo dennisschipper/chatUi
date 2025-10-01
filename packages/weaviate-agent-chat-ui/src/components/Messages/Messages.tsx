@@ -85,12 +85,9 @@ export const Messages = (props: IMessagesProps) => {
   const text = props.noMessages?.text
   
   return (
-    <div className="chatContainer messages">
-      <NewChatEntryNotification 
-        display={!fullyScrolled && newMessages && !!props.blockScrolling} 
-        onClick={onClickEntryNotification} 
-      />
-      <NoContent display={displayEmpty} text={text} component={component} />
+    <div className="messages">
+      {/* <NewChatEntryNotification display={!fullyScrolled && newMessages && !!props.blockScrolling} onClick={onClickEntryNotification} /> */}
+      {/* <NoContent display={displayEmpty} text={text} component={component} /> */}
       <MessageList 
         ref={ref}
         startIndex={startIndex} 

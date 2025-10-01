@@ -9,7 +9,7 @@ interface IAppWrapperProps {
 
 export const AppWrapper = (props: IAppWrapperProps) => {
   const { addChatEntry } = props
-  const messages: IMessage[] = testFlatData.slice(0, 13)
+  const messages: IMessage[] = testFlatData.slice(0, 6)
   const controls = [ <UserLocationRequest />, <ChatOptions /> ]
   const onClickRecentItem = (recentItem: IRecentItem) => console.log(recentItem)
 

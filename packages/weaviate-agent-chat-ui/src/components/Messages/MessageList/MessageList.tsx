@@ -28,7 +28,7 @@ export const MessageList = (props: IMessageListProps) => {
   ))
 
   return !display ? null : (
-    <div className="chatScroller" onScroll={props.onScroll} ref={props.ref}>
+    <div className="messageScroller" onScroll={props.onScroll} ref={props.ref}>
       {props.header}
       <ul className="chatContainerList">
         {items}
