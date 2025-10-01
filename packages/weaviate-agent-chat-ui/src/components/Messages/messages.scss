@@ -13,6 +13,8 @@
   padding: 0 50px;
   padding-bottom: 10px;
   padding-top: 10px;
+  
+  // The second gradient makes sure the scrollbar does not get the trasparency effect.
   mask-image:
     linear-gradient(
       to bottom,

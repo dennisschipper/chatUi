@@ -1,6 +1,5 @@
 import { useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
-import { ChatInputControls } from './ChatInputControls'
 import { ChatSubmit } from '../Generic/ChatSubmit'
 import { Placeholder } from '../Generic/Placeholder/Placeholder'
 
