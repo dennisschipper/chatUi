@@ -1,4 +1,4 @@
-ul.chatContainerList {
+ul.messageList {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -12,5 +12,10 @@ ul.chatContainerList {
 
   > li:last-of-type {
     .messageSuggestions { display: initial; }
+  }
+
+  li.chatui + li.chatui, li.you + li.you {
+    margin-top: -5px;
+    .messageSource { display: none; }
   }
 }

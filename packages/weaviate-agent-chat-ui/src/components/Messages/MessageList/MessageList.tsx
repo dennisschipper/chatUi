@@ -18,7 +18,7 @@ export const MessageList = (props: IMessageListProps) => {
   const { displayMeta } = props
 
   const items = props.messages.map(message => (
-    <li key={message.id}>
+    <li key={message.id} className={message.source.title.toLowerCase()}>
       <Message 
         message={message} 
         displayMeta={displayMeta}
@@ -30,7 +30,7 @@ export const MessageList = (props: IMessageListProps) => {
   return !display ? null : (
     <div className="messageScroller" onScroll={props.onScroll} ref={props.ref}>
       {props.header}
-      <ul className="chatContainerList">
+      <ul className="messageList">
         {items}
       </ul>
     </div>

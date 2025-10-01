@@ -14,7 +14,8 @@ export interface IMessage {
   id: string | number
   source: IMessageSource
   content: ReactNode
-  suggestions: IMessageSuggestion[]
+  suggestions?: IMessageSuggestion[]
+  meta?: { displayMeta: boolean }
 }
 
 export interface IMessageSuggestion {

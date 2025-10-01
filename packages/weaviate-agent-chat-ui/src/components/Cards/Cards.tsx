@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, ReactNode } from "react"
 import { Card } from "../Card/Card"
 
 interface ICardsProps {
+  display?: boolean
   cards: ReactNode[]
 }
 
@@ -36,7 +37,7 @@ export const Cards = (props: ICardsProps) => {
     )
   )
 
-  return (
+  return props.display === false ? null : (
     <div>
       <div className={`cardSlider ${position.left ? 'left' : ''}`}>
         <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>

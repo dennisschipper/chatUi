@@ -14,7 +14,7 @@ export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
     props.onClickSuggestion(suggestion, props.message)
   }
 
-  const items = props.message.suggestions.map(
+  const items = props.message.suggestions?.map(
     s => (
       <li key={s.text}>
         <MessageSuggestion suggestion={s} onClick={onClick} />
@@ -22,7 +22,7 @@ export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
     )
   )
 
-  return (
+  return !props.message.suggestions?.length ? null : (
     <div className="messageSuggestions">
       <MessageSuggestionsTitle {...props.title} />
       <ul>
