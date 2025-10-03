@@ -1,7 +1,42 @@
-import type { IMessage, IRecentItem } from "weaviate-agent-chat-ui";
+import type { IMessage, IRecentItem, IMessageSource, IMessageSuggestion } from "weaviate-agent-chat-ui";
 import user from '../../packages/weaviate-agent-chat-ui/src/assets/icons/user.svg'
 import ai from '../../packages/weaviate-agent-chat-ui/src/assets/icons/ai.svg'
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
+
+
+export const demoSuggestions: IMessageSuggestion[] = [
+  { text: "Show me recent failed authentication attempts", highlights: ["failed authentication"] },
+  { text: "Analyze suspicious network traffic patterns", highlights: ["suspicious network traffic"] },
+  { text: "List all privilege escalation incidents this month", highlights: ["privilege escalation incidents"] },
+  { text: "Check for unauthorized access to sensitive files", highlights: ["unauthorized access"] },
+  { text: "Review firewall rules and port scanning activity", highlights: ["firewall rules", "port scanning"] },
+  { text: "Identify accounts with excessive permissions", highlights: ["excessive permissions"] },
+  { text: "Scan for outdated software and security patches", highlights: ["outdated software", "security patches"] },
+  { text: "Detect potential malware or ransomware signatures", highlights: ["malware", "ransomware"] },
+  { text: "Audit changes to system configuration files", highlights: ["system configuration"] },
+  { text: "Monitor data exfiltration attempts", highlights: ["data exfiltration"] }
+]
+
+export const getRandom = <T,>(array: T[]): T[] => {
+  const firstIndex = Math.floor(Math.random() * array.length)
+  let secondIndex = Math.floor(Math.random() * array.length)
+  while (secondIndex === firstIndex) {
+    secondIndex = Math.floor(Math.random() * array.length)
+  }
+  return [array[firstIndex], array[secondIndex]]
+}
+
+export const userMessage = (content: ReactNode): IMessage => {
+  const id = Math.random().toString()
+  const source: IMessageSource = { title: "You", icon: user } 
+  return ({ id, content, source })
+}
+
+export const systemMessage = (): IMessage => {
+  const id = Math.random().toString()
+  const source: IMessageSource = { title: "ChatUi", icon: ai }
+  return({ id, source, content: <div>I am a system response</div> })
+}
 
 export const recentItems: IRecentItem[] = [
   { id: "1", text: "Established product volume declining" },

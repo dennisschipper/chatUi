@@ -26,7 +26,7 @@ export const Message = (props: IMessageProps) => {
       <div className="messageBody">
         <MessageContent message={message}  />
         <MessageInput 
-          display={message.meta?.displayMeta}
+          display={message.meta?.displayMeta === true}
           onSubmit={onSubmitMeta} 
         />
       </div>
