@@ -32,7 +32,7 @@ export const AppWrapper = () => {
       <span className="addResponse" onClick={onClick}>Add response</span>
       <Messages maxItems={200} blockScrolling={true} messages={messages} title={{ text: "What's next?" }} />
       <Cards cards={cards} display={!messages.length} />
-      <Recent recentItems={[]} onClick={onClickRecentItem} header={{ title: "Recent conversations" }} />
+      <Recent recentItems={recentItems} onClick={onClickRecentItem} header={{ title: "Recent conversations" }} />
       <ChatInput onSubmit={addMessage} controls={controls} />
     </div>
   )
