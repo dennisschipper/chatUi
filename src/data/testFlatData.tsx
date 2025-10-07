@@ -29,7 +29,7 @@ export const getRandom = <T,>(array: T[]): T[] => {
 export const userMessage = (content: ReactNode): IMessage => {
   const id = Math.random().toString()
   const source: IMessageSource = { title: "You", icon: user } 
-  return ({ id, content, source })
+  return ({ id, content, source, meta: { displayMeta: false } })
 }
 
 export const systemMessage = (): IMessage => {

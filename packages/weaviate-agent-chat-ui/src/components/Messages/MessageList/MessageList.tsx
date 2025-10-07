@@ -1,6 +1,6 @@
 import { type ReactElement, type Ref } from 'react'
 import { Message } from '../../Message/Message'
-import { IMessage } from '../../../types'
+import { IMessage, IMessageSuggestion } from '../../../types'
 import { IMessageSuggestionsTitleProps } from '../../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 
 interface IMessageListProps {
@@ -9,19 +9,17 @@ interface IMessageListProps {
   header?: ReactElement
   ref: Ref<any>
   messages: IMessage[]
-  displayMeta?: boolean
   title?: IMessageSuggestionsTitleProps
+  onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
 }
 
 export const MessageList = (props: IMessageListProps) => {
   const display = !!props.messages.length
-  const { displayMeta } = props
 
   const items = props.messages.map(message => (
     <li key={message.id} className={message.source.title.toLowerCase()}>
       <Message 
         message={message} 
-        displayMeta={displayMeta}
         title={props.title}
       />
     </li>

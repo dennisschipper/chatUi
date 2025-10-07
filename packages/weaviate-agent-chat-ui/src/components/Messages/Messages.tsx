@@ -4,7 +4,7 @@ import { LoadMoreChatsButton } from "./LoadMoreChatsButton"
 import { NewChatEntryNotification } from "./NewChatEntryNotification/NewChatEntryNotification"
 import { MessageList } from "./MessageList"
 import { NoContent } from "./NoContent/NoContent"
-import { IMessage } from '../../types'
+import { IMessage, IMessageSuggestion } from '../../types'
 import { IMessageSuggestionsTitleProps } from '../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 
 export interface IMessagesProps {
@@ -13,6 +13,8 @@ export interface IMessagesProps {
   messages: IMessage[]
   noMessages?: { text?: string, component?: ReactNode }
   title?: IMessageSuggestionsTitleProps
+
+  onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
 }
 
 export const Messages = (props: IMessagesProps) => {
@@ -93,9 +95,9 @@ export const Messages = (props: IMessagesProps) => {
         startIndex={startIndex} 
         onScroll={onScroll} 
         header={chatHeader} 
-        displayMeta={true}
         messages={props.messages}
         title={props.title}
+        onClickSuggestion={props.onClickSuggestion}
       />
     </div>
   )

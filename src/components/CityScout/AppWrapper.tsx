@@ -1,6 +1,6 @@
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
-import { ChatInput, Messages, Cards, Recent, type IMessage, type IRecentItem } from 'weaviate-agent-chat-ui'
+import { ChatInput, Messages, Cards, Recent, type IMessage, type IRecentItem, type IMessageSuggestion } from 'weaviate-agent-chat-ui'
 import { cards, recentItems, systemMessage, testFlatData, userMessage } from 'src/data/testFlatData'
 import { useState, type ReactNode } from 'react'
 import user from '../../../packages/weaviate-agent-chat-ui/src/assets/icons/user.svg'
@@ -23,16 +23,31 @@ export const AppWrapper = () => {
 
   const [ messages, updateMessages ] = useState<IMessage[]>([])
 
-  const onClick = () => {
-    addResponse()
+  const onClick = () => addResponse()
+
+  const onClickSuggestion = (suggestion: IMessageSuggestion, _: IMessage) => {
+    addMessage(suggestion.text)
   }
+
+  const displayRecent = !messages.length && !!recentItems.length
 
   return (
     <div className="appWrapper">
       <span className="addResponse" onClick={onClick}>Add response</span>
-      <Messages maxItems={200} blockScrolling={true} messages={messages} title={{ text: "What's next?" }} />
+      <Messages 
+        maxItems={200} 
+        blockScrolling={true} 
+        messages={messages} 
+        title={{ text: "What's next?" }} 
+        onClickSuggestion={onClickSuggestion}
+      />
       <Cards cards={cards} display={!messages.length} />
-      <Recent recentItems={recentItems} onClick={onClickRecentItem} header={{ title: "Recent conversations" }} />
+      <Recent 
+        display={displayRecent}
+        recentItems={recentItems} 
+        onClick={onClickRecentItem} 
+        header={{ title: "Recent conversations" }} 
+      />
       <ChatInput onSubmit={addMessage} controls={controls} />
     </div>
   )

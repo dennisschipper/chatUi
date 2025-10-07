@@ -17,11 +17,12 @@ describe("<MessageSuggestions />", () => {
 
   it("Should render any suggestions", () => {
     render(<MessageSuggestions message={message} onClickSuggestion={onClickSuggestionMock} />)
-    message.suggestions.forEach(s => expect(screen.getByText(s.text)).toBeTruthy())
+    message.suggestions?.forEach(s => expect(screen.getByText(s.text)).toBeTruthy())
   })
 
   it("Should call the prop if a suggestion is clicked", () => {
     render(<MessageSuggestions message={message} onClickSuggestion={onClickSuggestionMock} />)
+    if (!message.suggestions) throw Error("") // Just for the type hints.
     fireEvent.click(screen.getByText(message.suggestions[0].text))
     expect(onClickSuggestionMock).toHaveBeenCalledTimes(1)
     expect(onClickSuggestionMock).toHaveBeenCalledWith(message.suggestions[0], message)

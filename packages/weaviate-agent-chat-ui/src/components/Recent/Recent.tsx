@@ -6,6 +6,7 @@ interface IRecentProps {
   recentItems: IRecentItem[]
   onClick: (recentItem: IRecentItem) => void
   header?: IRecentHeaderProps
+  display?: boolean
 }
 
 export const Recent = (props: IRecentProps) => {
@@ -17,7 +18,7 @@ export const Recent = (props: IRecentProps) => {
     )
   )
 
-  return !props.recentItems.length ? null : (
+  return !props.recentItems.length || props.display === false ? null : (
     <div className="recent">
       <RecentHeader {...props.header} />
       <hr />

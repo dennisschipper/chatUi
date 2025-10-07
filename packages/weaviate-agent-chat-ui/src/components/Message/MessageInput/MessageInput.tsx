@@ -39,7 +39,7 @@ export const MessageInput = (props: IMessageInputProps) => {
 
   const placeholderActive = !focused && !value.trim().length
 
-  return !props.display === false ? null : (
+  return props.display === false ? null : (
     <>
       <div className="messageInput">
         <hr />

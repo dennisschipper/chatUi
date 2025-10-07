@@ -7,13 +7,13 @@ import { IMessageSuggestionsTitleProps } from "./MessageSuggestions/MessageSugge
 
 export interface IMessageProps {
   message: IMessage
-  displayMeta?: boolean
   title?: IMessageSuggestionsTitleProps
+  onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
 }
 
 export const Message = (props: IMessageProps) => {
-  const { displayMeta, message } = props
-
+  const { message } = props
+  const displayMeta = props.message.meta?.displayMeta
   const onSubmitMeta = (text: string) => console.log(text)
 
   const onClickSuggestion = (suggestion: IMessageSuggestion, message: IMessage) => {
@@ -25,10 +25,7 @@ export const Message = (props: IMessageProps) => {
       <MessageSource {...message.source} />
       <div className="messageBody">
         <MessageContent message={message}  />
-        <MessageInput 
-          display={message.meta?.displayMeta === true}
-          onSubmit={onSubmitMeta} 
-        />
+        <MessageInput display={displayMeta} onSubmit={onSubmitMeta} />
       </div>
       <MessageSuggestions 
         onClickSuggestion={onClickSuggestion}
