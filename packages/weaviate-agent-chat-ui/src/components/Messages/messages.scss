@@ -36,7 +36,15 @@
 
 
 
+.messageWrapper {
+  flex: 1 0;
+  position: relative;
 
+  .message {
+    width: 100%;
+    position: absolute;
+  }
+}
 
 
 .message {
