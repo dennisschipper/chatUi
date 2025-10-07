@@ -1,6 +1,8 @@
+import { AnimatePresence, motion } from "motion/react"
 import { IRecentItem } from "../../types"
 import { IRecentHeaderProps, RecentHeader } from "./RecentHeader/RecentHeader"
 import { RecentItem } from "./RecentItem/RecentItem"
+import { defaultMotionProps as motionProps } from "../../helpers"
 
 interface IRecentProps {
   recentItems: IRecentItem[]
@@ -18,13 +20,19 @@ export const Recent = (props: IRecentProps) => {
     )
   )
 
-  return !props.recentItems.length || props.display === false ? null : (
-    <div className="recent">
-      <RecentHeader {...props.header} />
-      <hr />
-      <ul className="recentsList">
-        {recentItems}
-      </ul>
-    </div>
+  const display = !props.recentItems.length || props.display === false
+
+  return (
+    <AnimatePresence>
+      { !display &&
+        <motion.div {...motionProps} className="recent">
+          <RecentHeader {...props.header} />
+          <hr />
+          <ul className="recentsList">
+            {recentItems}
+          </ul>
+        </motion.div>
+      }
+    </AnimatePresence>
   )
 }

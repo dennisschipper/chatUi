@@ -3,8 +3,6 @@ import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 import { ChatInput, Messages, Cards, Recent, type IMessage, type IRecentItem, type IMessageSuggestion } from 'weaviate-agent-chat-ui'
 import { cards, recentItems, systemMessage, testFlatData, userMessage } from 'src/data/testFlatData'
 import { useState, type ReactNode } from 'react'
-import user from '../../../packages/weaviate-agent-chat-ui/src/assets/icons/user.svg'
-import ai from '../../../packages/weaviate-agent-chat-ui/src/assets/icons/ai.svg'
 
 
 export const AppWrapper = () => {
@@ -24,6 +22,7 @@ export const AppWrapper = () => {
   const [ messages, updateMessages ] = useState<IMessage[]>([])
 
   const onClick = () => addResponse()
+  const onClickClear = () => updateMessages([])
 
   const onClickSuggestion = (suggestion: IMessageSuggestion, _: IMessage) => {
     addMessage(suggestion.text)
@@ -34,6 +33,7 @@ export const AppWrapper = () => {
   return (
     <div className="appWrapper">
       <span className="addResponse" onClick={onClick}>Add response</span>
+      <span className="clear" onClick={onClickClear}>Clear</span>
       <Messages 
         maxItems={200} 
         blockScrolling={true} 

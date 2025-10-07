@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect, ReactNode } from "react"
 import { Card } from "../Card/Card"
+import { AnimatePresence, motion } from "motion/react"
+import { defaultMotionProps as motionProps } from "../../helpers"
 
 interface ICardsProps {
   display?: boolean
@@ -37,15 +39,21 @@ export const Cards = (props: ICardsProps) => {
     )
   )
 
-  return props.display === false ? null : (
-    <div>
-      <div className={`cardSlider ${position.left ? 'left' : ''}`}>
-        <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
-          <ul ref={ulRef}>
-            {cards}
-          </ul>
-        </div>
-      </div>
-    </div>
+  const display = props.display === false
+
+  return (
+    <AnimatePresence>
+      { !display && 
+        <motion.div {...motionProps}>
+          <div className={`cardSlider ${position.left ? 'left' : ''}`}>
+            <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
+              <ul ref={ulRef}>
+                {cards}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      }
+    </AnimatePresence>
   )
 }

@@ -5,6 +5,15 @@ import { IRecentItem } from "../../types";
 
 const onClickMock = vi.fn()
 
+vi.mock('motion/react', async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual as any,
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+    motion: new Proxy({}, { get: () => (props: any) => <div {...props} /> }),
+  }
+})
+
 describe("<Recent />", () => {
   beforeEach(cleanup)
   const items: IRecentItem[] = [{ text: "Lorel ipsum." }, { text: "Dolor sit amet." }]

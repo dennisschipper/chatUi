@@ -31,9 +31,7 @@ export const IntroSuggestionsChat = (props: IIntroSuggestionsChatProps) => {
   const motionProps: MotionProps = {
     animate: { height },
     transition: { delay: 0 }
-  }
-
-  
+  }  
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     updateValue(e.target.value)
