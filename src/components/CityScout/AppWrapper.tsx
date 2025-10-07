@@ -11,12 +11,12 @@ export const AppWrapper = () => {
 
   const addMessage = (content: ReactNode) => {
     const message = userMessage(content)
-    updateMessages([message, ...messages])
+    updateMessages([...messages, message])
   }
 
   const addResponse = () => {
     const message = systemMessage()
-    updateMessages([message, ...messages])
+    updateMessages([...messages, message])
   }
 
   const [ messages, updateMessages ] = useState<IMessage[]>([])

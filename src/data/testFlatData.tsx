@@ -35,7 +35,11 @@ export const userMessage = (content: ReactNode): IMessage => {
 export const systemMessage = (): IMessage => {
   const id = Math.random().toString()
   const source: IMessageSource = { title: "ChatUi", icon: ai }
-  return({ id, source, content: <div>I am a system response</div> })
+  const suggestions: IMessageSuggestion[] = [
+    { text: "Show established product volume graphs for this year.", highlights: ["product volume graphs"]},
+    { text: "List new and established products projected sales.", highlights: ["projected sales"]}
+  ]
+  return({ id, source, content: <div>I am a system response</div>, suggestions })
 }
 
 export const recentItems: IRecentItem[] = [
