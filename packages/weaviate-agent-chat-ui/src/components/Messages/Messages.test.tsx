@@ -42,5 +42,4 @@ describe('Messages', () => {
       itemTexts.forEach(item => expect(screen.getByText(item)).toBeTruthy())
     })
   })
-
 })

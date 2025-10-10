@@ -1,6 +1,8 @@
+import { AnimatePresence, motion, MotionProps } from "motion/react"
 import { IMessage, IMessageSuggestion } from "../../../types"
 import { MessageSuggestion } from "./MessageSuggestion/MessageSuggestion"
 import { IMessageSuggestionsTitleProps, MessageSuggestionsTitle } from "./MessageSuggestionsTitle/MessageSuggestionsTitle"
+import { defaultMotionProps } from "../../../helpers"
 
 interface IMessageSuggestionsProps {
   message: IMessage
@@ -22,12 +24,24 @@ export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
     )
   )
 
-  return !props.message.suggestions?.length ? null : (
-    <div className="messageSuggestions">
-      <MessageSuggestionsTitle {...props.title} />
-      <ul>
-        {items}
-      </ul>
-    </div>
+  const display = !!props.message.suggestions?.length
+
+  const motionProps: MotionProps = {
+    ...defaultMotionProps,
+    exit: { x: -50, opacity: 0 },
+    transition: { duration: 2 }
+  }
+
+  return (
+    <AnimatePresence>
+      { display && 
+        <motion.div {...motionProps} className="messageSuggestions" key={"hey"}>
+          <MessageSuggestionsTitle {...props.title} />
+          <ul>
+            {items}
+          </ul>
+        </motion.div>
+      }
+    </AnimatePresence>
   )
 }

@@ -1,7 +1,7 @@
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 import { ChatInput, Messages, Cards, Recent, type IMessage, type IRecentItem, type IMessageSuggestion } from 'weaviate-agent-chat-ui'
-import { cards, recentItems, systemMessage, testFlatData, userMessage } from 'src/data/testFlatData'
+import { cards, recentItems, systemMessage, userMessage } from 'src/data/testFlatData'
 import { useState, type ReactNode } from 'react'
 
 
@@ -36,7 +36,7 @@ export const AppWrapper = () => {
       <span className="clear" onClick={onClickClear}>Clear</span>
       <Messages 
         maxItems={200} 
-        blockScrolling={true} 
+        blockScrolling={false} 
         messages={messages} 
         title={{ text: "What's next?" }} 
         onClickSuggestion={onClickSuggestion}

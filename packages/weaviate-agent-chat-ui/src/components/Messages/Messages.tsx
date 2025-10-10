@@ -32,12 +32,12 @@ export const Messages = (props: IMessagesProps) => {
   }
   
   useEffect(() => {
-    // (props.blockScrolling !== true && props.items.length > 0) && scrollToNewEntries()
+    (props.blockScrolling !== true && props.messages.length > 0) && scrollToNewEntries()
   }, [props.messages.length, props.blockScrolling])
 
   useEffect(() => {
     // This is too eager to fire off.
-    // props.items.length > 0 && scrollToNewEntries()
+    props.messages.length > 0 && scrollToNewEntries()
   }, [])
   
   const prevItemsLength = useRef(props.messages.length)
@@ -79,9 +79,7 @@ export const Messages = (props: IMessagesProps) => {
     />
   )
   
-  const onClickEntryNotification = () => {
-    scrollToNewEntries()
-  }
+  const onClickEntryNotification = () => scrollToNewEntries()
 
   const component = props.noMessages?.component
   const text = props.noMessages?.text

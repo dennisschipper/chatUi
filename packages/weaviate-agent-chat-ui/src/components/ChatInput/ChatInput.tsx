@@ -48,7 +48,7 @@ export const ChatInput = (props: IChatInputProps) => {
         <Placeholder 
           onClick={onPlaceholderClick} 
           text={props.placeholder ?? "Type a message..."} 
-          active={!focused}
+          active={!focused && !value.length}
         />
         <TextareaAutosize
           ref={inputRef}
