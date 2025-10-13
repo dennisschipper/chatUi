@@ -40,11 +40,12 @@ export const systemMessageSuggestions: IMessage[] = [
   {
     id: "001",
     content: "Show me a detailed comparison of sales volumes between our newest product launches and our older, more established products, including how those trends have shifted over the past year.",
-    source: { title: "You", icon: user }
+    source: { title: "You", icon: user },
+    meta: { displayMeta: false }
   },
-  { 
-    id: "002", 
-    content: 
+  {
+    id: "002",
+    content:
     <div className="chatContent">
       <p>Here's the breakdown:</p>
       <ol>
@@ -57,6 +58,85 @@ export const systemMessageSuggestions: IMessage[] = [
     suggestions: [
       { text: "Which established products are experiencing the greatest volume decline?", highlights: ["greatest volume decline"] },
       { text: "Projected sales distribution between new and established products over the next year?", highlights: ["Projected sales distribution"]}
+    ]
+  },
+  {
+    id: "003",
+    content: "Which established products are experiencing the greatest volume decline?",
+    source: { title: "You", icon: user },
+    meta: { displayMeta: false }
+  },
+  {
+    id: "004",
+    content:
+    <div className="chatContent">
+      <p>Products with the steepest volume decline:</p>
+      <ol>
+        <li><strong>Product A:</strong> -7.2% decline (45k → 41.8k units)
+          <ul>
+            <li>West Coast showing highest impact at -12%</li>
+            <li>Price competition from new entrants</li>
+          </ul>
+        </li>
+        <li><strong>Product B:</strong> -6.8% decline (38k → 35.4k units)
+          <ul>
+            <li>Consumer preference shifting to premium alternatives</li>
+            <li>Weakest in Northeast and West Coast markets</li>
+          </ul>
+        </li>
+        <li><strong>Product F:</strong> -6.3% decline (29k → 27.2k units)
+          <ul>
+            <li>Aging product design losing appeal</li>
+          </ul>
+        </li>
+      </ol>
+    </div>,
+    source: { title: "ChatUi", icon: ai },
+    suggestions: [
+      { text: "What strategies could reverse these declines?", highlights: ["strategies", "reverse"] },
+      { text: "Should we consider discontinuing any of these products?", highlights: ["discontinuing"] }
+    ]
+  },
+  {
+    id: "005",
+    content: "What strategies could reverse these declines?",
+    source: { title: "You", icon: user },
+    meta: { displayMeta: false }
+  },
+  {
+    id: "006",
+    content:
+    <div className="chatContent">
+      <p>Recommended turnaround strategies:</p>
+      <ol>
+        <li><strong>Product refresh initiatives:</strong>
+          <ul>
+            <li>Product A: Update packaging and positioning for premium segment</li>
+            <li>Product B: Launch limited edition variants to create urgency</li>
+            <li>Product F: Redesign scheduled for Q2 2026 based on consumer feedback</li>
+          </ul>
+        </li>
+        <li><strong>Pricing optimization:</strong>
+          <ul>
+            <li>Strategic bundling with new products to drive volume</li>
+            <li>Regional pricing adjustments for West Coast market</li>
+            <li>Loyalty pricing tiers for repeat customers</li>
+          </ul>
+        </li>
+        <li><strong>Marketing investment:</strong>
+          <ul>
+            <li>Increase digital spend by 25% focusing on product benefits</li>
+            <li>Influencer partnerships to reach younger demographics</li>
+            <li>In-store promotions and sampling programs</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Initial investment required: $2.3M, projected ROI: 180% over 18 months</p>
+    </div>,
+    source: { title: "ChatUi", icon: ai },
+    suggestions: [
+      { text: "Break down the $2.3M investment by initiative", highlights: ["$2.3M investment"] },
+      { text: "What's the timeline for implementing these strategies?", highlights: ["timeline", "implementing"] }
     ]
   }
 ]
@@ -344,6 +424,50 @@ export const cards: ReactNode[] = [
     <ol>
       <li>Time: 16.20 to 17.05</li>
       <li>4,382 connection attempts logged.</li>
+    </ol>
+  </>,
+
+  <>
+    <h1>Q4 Revenue Forecast</h1>
+    <p>Updated projections for Q4 based on current trends.</p>
+    <ol>
+      <li>Expected revenue: $18.2M (+12% vs Q3)</li>
+      <li>New products contributing 31% of total</li>
+      <li>West Coast region recovery accelerating</li>
+      <li>Risk factors: Supply chain delays, seasonal demand</li>
+    </ol>
+  </>,
+
+  <>
+    <h1>Customer Retention Analysis</h1>
+    <p>Deep dive into retention metrics across segments.</p>
+    <ol>
+      <li>Overall retention: 84.2% (up 2.1% YoY)</li>
+      <li>Premium segment: 91.5% retention</li>
+      <li>Mid-tier segment: 82.8% retention</li>
+      <li>Churn drivers: Price sensitivity (38%), Product availability (22%)</li>
+    </ol>
+  </>,
+
+  <>
+    <h1>Competitor Market Share Shift</h1>
+    <p>Recent changes in competitive landscape.</p>
+    <ol>
+      <li>Competitor A gained 2.3% share in premium segment</li>
+      <li>Our share holding steady at 28.7% overall</li>
+      <li>New entrant capturing 1.8% in value segment</li>
+      <li><a href="#">Full competitive analysis report</a></li>
+    </ol>
+  </>,
+
+  <>
+    <h1>Digital Channel Performance</h1>
+    <p>E-commerce and digital marketing effectiveness.</p>
+    <ol>
+      <li>E-commerce sales: +47% YoY, now 23% of total</li>
+      <li>Mobile conversion rate: 3.8% (up from 2.9%)</li>
+      <li>Social media ROI: $4.20 per dollar spent</li>
+      <li>Top performing channel: Instagram (42% of digital sales)</li>
     </ol>
   </>
 

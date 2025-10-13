@@ -6,9 +6,7 @@
 
   &:focus, &:hover {
     outline: none;
-    .icon {
-      opacity: 1;
-    }
+    .icon { opacity: 1; }
   }
 
   .icon {
@@ -23,14 +21,17 @@
 
   .text {
     flex: 1;
+    width: 100%;
+    overflow: hidden;
 
     span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       text-decoration: underline;
       text-decoration-thickness: 1px;
     }
 
-    strong {
-      font-weight: 700;
-    }
+    strong { font-weight: 700; }
   }
 }

@@ -29,7 +29,7 @@ export const Messages = (props: IMessagesProps) => {
     setTimeout(() => {
       const el = ref.current
       el && el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' })
-    }, 100)
+    }, 200)
   }
   
   useEffect(() => {

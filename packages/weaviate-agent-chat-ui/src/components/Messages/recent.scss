@@ -39,9 +39,15 @@ ul.recentsList {
   cursor: pointer;
   flex-direction: row;
   align-items: center;
+  overflow: hidden;
+  width: 100%;
 
   .text {
-    flex-grow: 1;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .icon {
@@ -53,6 +59,7 @@ ul.recentsList {
     height: 40px;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     img { 
       opacity: 0.33; 
       transition: all 0.25s ease-in-out;
