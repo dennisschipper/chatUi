@@ -1,71 +1,91 @@
-# CityScout Frontend
+# Weaviate Agent Chat UI
 
-CityScout is a chat-based city recommendation system built with React, TypeScript, and Vite. It provides personalized travel recommendations through an interactive chat interface.
+React component library for building conversational AI interfaces.
 
-## Getting Started
+## Installation
 
-Follow these steps to get the local frontend server up and running:
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd cityScout-front
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Running the Development Server
-
-Start the development server:
 ```bash
-npm run dev
+npm install weaviate-agent-chat-ui
 ```
 
-The application will be available at `http://localhost:5173`
+## Usage
 
-### Other Available Scripts
+```typescript
+import { ChatInput, Messages, Cards, Recent } from 'weaviate-agent-chat-ui'
+import 'weaviate-agent-chat-ui/dist/index.css'
 
-- `npm run build` - Build for production
-- `npm run preview` - Preview the production build locally
-- `npm run lint` - Run ESLint
-- `npm start` - Start production server (requires build first)
+function App() {
+  const [messages, setMessages] = useState([])
 
-### Features
+  return (
+    <>
+      <Messages messages={messages} />
+      <ChatInput onSubmit={(text) => console.log(text)} />
+    </>
+  )
+}
+```
 
-- Interactive landing page with city selection
-- Chat-based recommendation interface
-- Location details with photos and reviews
-- Responsive design with smooth animations
-- Development/production mode detection
+## Components
 
-### Backend Integration
+### Messages
+Display a list of chat messages with suggestions and sources.
 
-The chat interface requires a local backend server to provide real responses to user queries. In development mode, the frontend will attempt to connect to the backend API.
+### ChatInput
+Input component for submitting chat messages with controls.
 
-**Backend Repository:**
-- [CityScout Backend](https://github.com/weaviate/city-scout/tree/danny) (use the `danny` branch)
-- Follow the setup instructions in the backend repository to get the API server running locally
+### Cards
+Display a grid of interactive cards.
 
-**For testing without a backend:**
-- Click the "Text cycle test" button in the chat interface to generate fake chat entries for testing purposes
-- This allows you to explore the chat functionality and UI without needing the backend running
+### Recent
+Show recent conversation items.
 
-### Technology Stack
+## Development
+
+### Building the Package
+
+```bash
+npm install
+npm run build
+```
+
+### Development with Demo
+
+For live reload during development:
+
+1. Start the demo project in development mode (at `../chatUi-demo`)
+2. The demo links directly to this package's source code
+3. Changes to the package will hot-reload in the demo
+
+### Project Structure
+
+```
+src/
+├── components/        # React components
+│   ├── ChatInput/    # Input component
+│   ├── Messages/     # Message display
+│   ├── Cards/        # Card components
+│   └── Recent/       # Recent items
+├── assets/           # SVG icons and assets
+└── index.ts          # Package exports
+```
+
+## TypeScript
+
+Full TypeScript support with exported types:
+
+```typescript
+import type { IMessage, IRecentItem, IMessageSuggestion } from 'weaviate-agent-chat-ui'
+```
+
+## Technology Stack
 
 - **React 19** - UI framework
 - **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
+- **Vite** - Build tool
 - **SCSS** - Styling
 - **Motion** - Animations
-- **ESLint** - Code linting
 
+## License
+
+MIT

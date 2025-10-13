@@ -29,5 +29,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "packages/weaviate-agent-chat-ui/src/components/ChatInput", "packages/weaviate-agent-chat-ui/src/components/Generic/ChatSubmit"]
 }

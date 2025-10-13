@@ -1,7 +1,7 @@
-export const highlightText = (payload: {text: string, highlights: string[], highlightType?: 'span' | 'strong'}) => {
+export const highlightText = (payload: {text: string, highlights?: string[], highlightType?: 'span' | 'strong'}) => {
   const { text, highlights, highlightType } = payload
   
-  if (highlights.length === 0) return text
+  if (!highlights || highlights.length === 0) return text
 
   const tag = highlightType || 'span'
   let highlightedText = text

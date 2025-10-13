@@ -1,6 +1,1 @@
-export * from './appTypes'
-export * from './chatTypes'
-export * from './reviewTypes'
-export * from './chatIntroTypes'
-export * from './markTypes'
-export * from './uiTypes'
+export * from './messageTypes'

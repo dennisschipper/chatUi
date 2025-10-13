@@ -1,0 +1,21 @@
+.messageSuggestions {
+  background: radial-gradient(50% 50% at 50% 50%, #EFEFEF 0%, #EEEEEA 100%);
+  box-shadow: 0px 10px 65px 10px rgba(0, 0, 0, 0.07);
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+
+  header {
+    min-height: 40px;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  ul {
+    li {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      min-height: 40px;
+      align-items: center;
+    }
+  }
+}

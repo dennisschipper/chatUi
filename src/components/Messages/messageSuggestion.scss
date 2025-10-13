@@ -1,0 +1,37 @@
+.messageSuggestion {
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+
+  &:focus, &:hover {
+    outline: none;
+    .icon { opacity: 1; }
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.33;
+    margin-left: -10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .text {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+
+    span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    strong { font-weight: 700; }
+  }
+}
