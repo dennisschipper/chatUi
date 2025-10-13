@@ -27,17 +27,19 @@ div.chatContent {
 
     li {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       gap: $space;
+      padding-left: 20px;
+      position: relative;
 
       &::before {
         content: '';
-        display: flex;
-        flex-shrink: 0;
-        justify-self: stretch;;
+        position: absolute;
+        left: 5px;
+        top: 0px;
         background: rgba(0, 0, 0, 0.1);
         width: 2px;
-        margin-left: 5px;
+        height: 100%;
       }
     }
   }

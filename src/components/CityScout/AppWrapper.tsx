@@ -1,13 +1,19 @@
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 import { ChatInput, Messages, Cards, Recent, type IMessage, type IRecentItem, type IMessageSuggestion } from 'weaviate-agent-chat-ui'
-import { cards, recentItems, systemMessage, systemMessageSuggestions, userMessage } from 'src/data/testFlatData'
+import { cards, recentItems, systemMessage, systemMessageSuggestions, userMessage, chatHistory1, chatHistory2 } from 'src/data/testFlatData'
 import { useState, type ReactNode } from 'react'
 
 
 export const AppWrapper = () => {
   const controls = [ <UserLocationRequest />, <ChatOptions /> ]
-  const onClickRecentItem = (recentItem: IRecentItem) => console.log(recentItem)
+  const onClickRecentItem = (recentItem: IRecentItem) => {
+    if (recentItem.id === "1") {
+      updateMessages(chatHistory1)
+    } else if (recentItem.id === "2") {
+      updateMessages(chatHistory2)
+    }
+  }
   
   const onSubmitMeta = (text: string) => addMessage(text)
 
