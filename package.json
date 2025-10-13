@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run build:package && tsc -b && vite build",
+    "build:package": "cd packages/weaviate-agent-chat-ui && npm install && npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "serve -s dist -l ${PORT:-3000}",
