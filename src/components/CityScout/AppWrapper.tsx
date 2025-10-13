@@ -1,13 +1,15 @@
 import { UserLocationRequest } from '../Generic/Buttons/UserLocationRequest'
 import { ChatOptions } from '../Elements/Popovers/ChatOptions/ChatOptions'
 import { ChatInput, Messages, Cards, Recent, type IMessage, type IRecentItem, type IMessageSuggestion } from 'weaviate-agent-chat-ui'
-import { cards, recentItems, systemMessage, userMessage } from 'src/data/testFlatData'
+import { cards, recentItems, systemMessage, systemMessageSuggestions, userMessage } from 'src/data/testFlatData'
 import { useState, type ReactNode } from 'react'
 
 
 export const AppWrapper = () => {
   const controls = [ <UserLocationRequest />, <ChatOptions /> ]
   const onClickRecentItem = (recentItem: IRecentItem) => console.log(recentItem)
+  
+  const onSubmitMeta = (text: string) => addMessage(text)
 
   const addMessage = (content: ReactNode) => {
     const message = userMessage(content)
@@ -15,13 +17,23 @@ export const AppWrapper = () => {
   }
 
   const addResponse = () => {
-    const message = systemMessage()
+    const message = systemMessage(messageIndex)
     updateMessages([...messages, message])
   }
 
   const [ messages, updateMessages ] = useState<IMessage[]>([])
+  const [ messageIndex, updateMessageIndex ] = useState<number>(0)
 
-  const onClick = () => addResponse()
+  const onClick = () => {
+    if (messageIndex < systemMessageSuggestions.length) {
+      addResponse()
+      updateMessageIndex(messageIndex + 1)
+    } else if (messageIndex === systemMessageSuggestions.length) {
+      updateMessages([])
+      updateMessageIndex(0)
+    }
+  }
+
   const onClickClear = () => updateMessages([])
 
   const onClickSuggestion = (suggestion: IMessageSuggestion, _: IMessage) => {
@@ -40,6 +52,7 @@ export const AppWrapper = () => {
         messages={messages} 
         title={{ text: "What's next?" }} 
         onClickSuggestion={onClickSuggestion}
+        onSubmitMeta={onSubmitMeta}
       />
       <Cards cards={cards} display={!messages.length} />
       <Recent 

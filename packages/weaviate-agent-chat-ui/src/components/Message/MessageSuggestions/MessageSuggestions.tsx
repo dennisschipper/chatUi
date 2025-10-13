@@ -7,13 +7,13 @@ import { defaultMotionProps } from "../../../helpers"
 interface IMessageSuggestionsProps {
   message: IMessage
   title?: IMessageSuggestionsTitleProps
-  onClickSuggestion: (suggestion: IMessageSuggestion, message: IMessage) => void
+  onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
 }
 
 export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
 
   const onClick = (suggestion: IMessageSuggestion) => {
-    props.onClickSuggestion(suggestion, props.message)
+    props.onClickSuggestion && props.onClickSuggestion(suggestion, props.message)
   }
 
   const items = props.message.suggestions?.map(

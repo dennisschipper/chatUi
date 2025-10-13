@@ -11,6 +11,7 @@ interface IMessageListProps {
   messages: IMessage[]
   title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
+  onSubmitMeta?: (text: string) => void
 }
 
 export const MessageList = (props: IMessageListProps) => {
@@ -21,6 +22,8 @@ export const MessageList = (props: IMessageListProps) => {
       <Message 
         message={message} 
         title={props.title}
+        onClickSuggestion={props.onClickSuggestion}
+        onSubmitMeta={props.onSubmitMeta}
       />
     </li>
   ))

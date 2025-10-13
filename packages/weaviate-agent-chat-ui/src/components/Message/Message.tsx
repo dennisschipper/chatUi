@@ -11,16 +11,14 @@ export interface IMessageProps {
   message: IMessage
   title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
+  onSubmitMeta?: (text: string) => void
 }
 
 export const Message = (props: IMessageProps) => {
-  const { message } = props
+  const { message, onClickSuggestion } = props
   const displayMeta = props.message.meta?.displayMeta
-  const onSubmitMeta = (text: string) => console.log(text)
-
-  const onClickSuggestion = (suggestion: IMessageSuggestion, message: IMessage) => {
-    console.log(message, suggestion)
-  }
+  const onSubmitMeta = (text: string) => 
+    props.onSubmitMeta ? props.onSubmitMeta(text) : null
 
   const [ ref, bounds ] = useMeasure()
 

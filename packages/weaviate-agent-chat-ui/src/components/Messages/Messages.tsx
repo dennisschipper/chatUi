@@ -15,6 +15,7 @@ export interface IMessagesProps {
   title?: IMessageSuggestionsTitleProps
 
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
+  onSubmitMeta?: (text: string) => void
 }
 
 export const Messages = (props: IMessagesProps) => {
@@ -56,9 +57,7 @@ export const Messages = (props: IMessagesProps) => {
   // Show the last maxVisibleItems
   const startIndex = Math.max(0, props.messages.length - maxVisibleItems)
   
-  const onClick = () => {
-    updateMaxVisibleItems(maxVisibleItems + maxItems)
-  }
+  const onClick = () => updateMaxVisibleItems(maxVisibleItems + maxItems)
   
   const displayLoadMore = props.messages.length > maxVisibleItems
   const loadMoreCount = Math.min(maxItems, props.messages.length - maxVisibleItems)
@@ -96,6 +95,7 @@ export const Messages = (props: IMessagesProps) => {
         messages={props.messages}
         title={props.title}
         onClickSuggestion={props.onClickSuggestion}
+        onSubmitMeta={props.onSubmitMeta}
       />
     </div>
   )

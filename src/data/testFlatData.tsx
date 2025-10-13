@@ -32,15 +32,37 @@ export const userMessage = (content: ReactNode): IMessage => {
   return ({ id, content, source, meta: { displayMeta: false } })
 }
 
-export const systemMessage = (): IMessage => {
-  const id = Math.random().toString()
-  const source: IMessageSource = { title: "ChatUi", icon: ai }
-  const suggestions: IMessageSuggestion[] = [
-    { text: "Show established product volume graphs for this year.", highlights: ["product volume graphs"]},
-    { text: "List new and established products projected sales.", highlights: ["projected sales"]}
-  ]
-  return({ id, source, content: <div>I am a system response</div>, suggestions })
+export const systemMessage = (index: number): IMessage => {
+  return systemMessageSuggestions[index]
 }
+
+export const systemMessageSuggestions: IMessage[] = [
+  {
+    id: "001",
+    content: "Show me a detailed comparison of sales volumes between our newest product launches and our older, more established products, including how those trends have shifted over the past year.",
+    source: { title: "You", icon: user }
+  },
+  { 
+    id: "002", 
+    content: 
+    <div className="chatContent">
+      <p>Here's the breakdown:</p>
+      <ol>
+        <li>New product launches (past 12 months) → 185k units sold total, showing a steady upward trend with a 22% increase quarter over quarter. The strongest launch was Product X with 60k units, now accounting for 18% of all sales in its category.</li>
+        <li>Established products (2+ years old) → 720k units sold total, but growth has slowed to 3% year over year. Several products, like Product A and Product B, show a slight decline of 5-7% compared to last year.</li>
+        <li>Trend comparison → New products now make up 20% of overall sales volume, up from just 12% a year ago, indicating they are gradually taking share from legacy items.</li>
+      </ol>
+    </div>,
+    source: { title: "ChatUi", icon: ai },
+    suggestions: [
+      { text: "Which established products are experiencing the greatest volume decline?", highlights: ["greatest volume decline"] },
+      { text: "Projected sales distribution between new and established products over the next year?", highlights: ["Projected sales distribution"]}
+    ]
+  }
+]
+
+
+
 
 export const recentItems: IRecentItem[] = [
   { id: "1", text: "Established product volume declining" },
