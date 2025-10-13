@@ -1,7 +1,7 @@
 import type { IMessage, IRecentItem, IMessageSource, IMessageSuggestion } from "weaviate-agent-chat-ui";
 import user from '../../packages/weaviate-agent-chat-ui/src/assets/icons/user.svg'
 import ai from '../../packages/weaviate-agent-chat-ui/src/assets/icons/ai.svg'
-import type { ReactElement, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 
 export const demoSuggestions: IMessageSuggestion[] = [

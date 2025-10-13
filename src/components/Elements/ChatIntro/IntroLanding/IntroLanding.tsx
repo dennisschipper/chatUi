@@ -1,8 +1,4 @@
-interface IIntroLandingProps {
-
-}
-
-export const IntroLanding = (props: IIntroLandingProps) => {
+export const IntroLanding = () => {
   return (
     <div className="introLanding">
       <header className="introLandingheader">

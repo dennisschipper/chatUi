@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "serve -s dist -l ${PORT:-3000}",
-    "test": "vitest"
+    "test": "vitest",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.28",

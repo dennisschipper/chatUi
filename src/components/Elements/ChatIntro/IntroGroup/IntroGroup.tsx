@@ -1,6 +1,5 @@
 import type { IIntroGroup } from "src/types"
 import { IntroSuggestionMark } from "../IntroSuggestionMark/IntroSuggestionMark"
-import { IntroSuggestionMarks } from "../IntroSuggestionMarks/IntroSuggestionMarks"
 
 interface IIntroGroupProps {
   group: IIntroGroup

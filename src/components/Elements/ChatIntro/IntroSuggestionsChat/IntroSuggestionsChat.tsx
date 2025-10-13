@@ -1,5 +1,5 @@
 import { motion, type MotionProps } from 'motion/react'
-import { useEffect, useState, type ChangeEventHandler, type CSSProperties, type FormEventHandler, type KeyboardEventHandler } from 'react'
+import { useEffect, useState, type ChangeEventHandler, type CSSProperties, type KeyboardEventHandler } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import useMeasure from 'react-use-measure'
 import chatBubble from 'src/assets/icons/chatIntro/chatBubble.svg'
