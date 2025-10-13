@@ -1,4 +1,4 @@
-import './messages.scss'
+import '../../styles/messages/index.scss'
 import { ReactNode, useEffect, useRef, useState } from "react"
 import { LoadMoreChatsButton } from "./LoadMoreChatsButton"
 import { NewChatEntryNotification } from "./NewChatEntryNotification/NewChatEntryNotification"
