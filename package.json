@@ -30,6 +30,10 @@
       "types": "./dist/index.d.ts"
     },
     "./styles": "./src/styles/index.scss",
+    "./styles/messages": "./src/styles/messages/index.scss",
+    "./styles/cards": "./src/styles/cards/index.scss",
+    "./styles/recent": "./src/styles/recent/index.scss",
+    "./styles/chatInput": "./src/styles/chatInput/index.scss",
     "./dist/index.css": "./dist/index.css"
   },
   "scripts": {
