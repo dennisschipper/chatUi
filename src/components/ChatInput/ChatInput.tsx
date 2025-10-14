@@ -43,7 +43,7 @@ export const ChatInput = (props: IChatInputProps) => {
   const submitDisabled = !value.trim()
 
   return (
-    <div className="chatInput">
+    <div className="weaviate-chat-ui chatInput">
       <div className="textInputContainer">
         <Placeholder 
           onClick={onPlaceholderClick} 

@@ -44,9 +44,9 @@ export const Cards = (props: ICardsProps) => {
 
   return (
     <AnimatePresence>
-      { !display && 
+      { !display &&
         <motion.div {...motionProps}>
-          <div className={`cardSlider ${position.left ? 'left' : ''}`}>
+          <div className={`weaviate-chat-ui cardSlider ${position.left ? 'left' : ''}`}>
             <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
               <ul ref={ulRef}>
                 {cards}

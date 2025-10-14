@@ -26,7 +26,7 @@ export const Recent = (props: IRecentProps) => {
   return (
     <AnimatePresence>
       { !display &&
-        <motion.div {...motionProps} className="recent">
+        <motion.div {...motionProps} className="weaviate-chat-ui recent">
           <RecentHeader {...props.header} />
           <hr />
           <ul className="recentsList">
