@@ -11,7 +11,7 @@ interface IChatInputProps {
   onChange?: (value: string) => void
   placeholder?: string
   controls?: ReactElement[]
-  component: ReactElement
+  component?: ReactElement
 }
 
 export const ChatInput = (props: IChatInputProps) => {

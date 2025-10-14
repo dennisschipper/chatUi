@@ -6,6 +6,7 @@ import { MessageList } from "./MessageList"
 import { NoContent } from "./NoContent/NoContent"
 import { IMessage, IMessageSuggestion } from '../../types'
 import { IMessageSuggestionsTitleProps } from '../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
+import { IMessageProps } from '../Message/Message'
 
 export interface IMessagesProps {
   blockScrolling?: boolean
@@ -16,6 +17,8 @@ export interface IMessagesProps {
 
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
+
+  messageProps?: Pick<IMessageProps, 'component'>
 }
 
 export const Messages = (props: IMessagesProps) => {
@@ -96,6 +99,7 @@ export const Messages = (props: IMessagesProps) => {
         title={props.title}
         onClickSuggestion={props.onClickSuggestion}
         onSubmitMeta={props.onSubmitMeta}
+        messageProps={props.messageProps}
       />
     </div>
   )

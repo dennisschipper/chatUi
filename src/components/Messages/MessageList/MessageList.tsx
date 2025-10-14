@@ -1,5 +1,5 @@
 import { type ReactElement, type Ref } from 'react'
-import { Message } from '../../Message/Message'
+import { IMessageProps, Message } from '../../Message/Message'
 import { IMessage, IMessageSuggestion } from '../../../types'
 import { IMessageSuggestionsTitleProps } from '../../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 
@@ -12,6 +12,8 @@ interface IMessageListProps {
   title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
+
+  messageProps: Pick<IMessageProps, 'component'>
 }
 
 export const MessageList = (props: IMessageListProps) => {
@@ -24,6 +26,7 @@ export const MessageList = (props: IMessageListProps) => {
         title={props.title}
         onClickSuggestion={props.onClickSuggestion}
         onSubmitMeta={props.onSubmitMeta}
+        {...props.messageProps} // Unsure
       />
     </li>
   ))
