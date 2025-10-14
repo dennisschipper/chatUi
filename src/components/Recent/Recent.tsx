@@ -1,3 +1,4 @@
+import '../../styles/recent/index.scss'
 import { AnimatePresence, motion } from "motion/react"
 import { IRecentItem } from "../../types"
 import { IRecentHeaderProps, RecentHeader } from "./RecentHeader/RecentHeader"

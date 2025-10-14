@@ -1,5 +1,28 @@
 
 
+ul.messageList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+
+  > li { display: flex; }
+
+  > li .messageSuggestions {
+    display: none;
+  }
+
+  > li:last-of-type {
+    .messageSuggestions { display: initial; }
+  }
+
+  li.chatui + li.chatui, li.you + li.you {
+    margin-top: -5px;
+    .messageSource { display: none; }
+  }
+}
+
+
 .messages {
   position: relative;
   overflow: hidden;
@@ -91,7 +114,3 @@ hr {
 @import 'messageSuggestions.scss';
 @import 'messageSuggestion.scss';
 
-
-@import 'cards.scss';
-
-@import 'recent.scss';

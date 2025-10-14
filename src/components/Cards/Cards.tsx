@@ -1,3 +1,4 @@
+import '../../styles/cards/index.scss'
 import { useState, useRef, useEffect, ReactNode } from "react"
 import { Card } from "../Card/Card"
 import { AnimatePresence, motion } from "motion/react"
