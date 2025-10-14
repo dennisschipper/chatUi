@@ -1,5 +1,5 @@
 export { Messages } from './components/Messages/Messages'
-export { Placeholder } from './components/Generic/Placeholder/Placeholder'
+export { Placeholder } from './components/ChatInput/Placeholder/Placeholder'
 export { Cards } from './components/Cards/Cards'
 export { Recent } from './components/Recent/Recent'
 export type { TRecentHeaderProps, IRecentHeaderProps } from './components/Recent/RecentHeader/RecentHeader'

@@ -1,13 +1,17 @@
-import { useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
+import { cloneElement, useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
-import { ChatSubmit } from '../Generic/ChatSubmit'
-import { Placeholder } from '../Generic/Placeholder/Placeholder'
+import { ChatSubmit } from './ChatSubmit'
+import { Placeholder } from './Placeholder/Placeholder'
+
+
+export type TChatInputProps = Omit<IChatInputProps, 'component'>
 
 interface IChatInputProps {
   onSubmit: (value: string) => void
   onChange?: (value: string) => void
   placeholder?: string
   controls?: ReactElement[]
+  component: ReactElement
 }
 
 export const ChatInput = (props: IChatInputProps) => {
@@ -41,6 +45,15 @@ export const ChatInput = (props: IChatInputProps) => {
   const onBlur = () => updateFocused(false)
 
   const submitDisabled = !value.trim()
+
+  if (props.component) {
+    return cloneElement<any>(props.component, { 
+      onSubmit: props.onSubmit,
+      onChange: props.onChange,
+      placeholder: props.placeholder,
+      controls: props.controls
+    })
+  }
 
   return (
     <div className="weaviate-chat-ui chatInput">

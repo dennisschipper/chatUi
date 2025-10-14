@@ -1,7 +1,7 @@
 import submit from '../../../assets/icons/submit.svg'
 import TextareaAutosize from 'react-textarea-autosize'
 import chatBubble from '../../../assets/icons/chatBubble.svg'
-import { Placeholder } from '../../Generic/Placeholder/Placeholder'
+import { Placeholder } from '../../ChatInput/Placeholder/Placeholder'
 import { ChangeEventHandler, FocusEventHandler, KeyboardEventHandler, useRef, useState } from 'react'
 import { inputText } from '../../../text/messagesTest'
 

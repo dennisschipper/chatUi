@@ -6,12 +6,16 @@ import { MessageSuggestions } from "./MessageSuggestions/MessageSuggestions"
 import { IMessageSuggestionsTitleProps } from "./MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle"
 import { AnimatePresence, motion, MotionProps } from "motion/react"
 import useMeasure from "react-use-measure"
+import { cloneElement, ReactElement } from "react"
+
+export type TMessageProps = Omit<IMessageProps, 'component'>
 
 export interface IMessageProps {
   message: IMessage
   title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
+  component?: ReactElement<TMessageProps>
 }
 
 export const Message = (props: IMessageProps) => {
@@ -32,6 +36,15 @@ export const Message = (props: IMessageProps) => {
     animate: { opacity: 1 },
     transition: { delay: 0.33 }
   } 
+
+  if (props.component) {
+    return cloneElement(props.component, {
+      message: props.message,
+      title: props.title,
+      onClickSuggestion: props.onClickSuggestion,
+      onSubmitMeta: props.onSubmitMeta
+    })
+  }
   
   return (
     <AnimatePresence>
