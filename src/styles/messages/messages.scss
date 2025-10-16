@@ -76,11 +76,11 @@ ul.messageList {
 }
 
 .messageBody {
-  background: radial-gradient(50% 50% at 50% 50%, #EFEFEF 0%, #EEEEEA 100%);
-  box-shadow: 0px 10px 65px 10px rgba(0, 0, 0, 0.07);
+  background: radial-gradient(50% 50% at 50% 50%, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  box-shadow: 0px 10px 65px 10px var(--shadow-medium);
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #fff;
+  border: 1px solid var(--border-primary);
   gap: 10px;
 }
 
@@ -96,7 +96,7 @@ hr {
   width: auto;
   min-height: 1px;
   border: 0;
-  background: #DFDFDF;
+  background: var(--border-secondary);
 }
 
 
@@ -106,7 +106,7 @@ hr {
   position: absolute;
   top: calc(50% - 0.9em);
   left: 10px;
-  color: rgba(0, 0, 0, 0.25);
+  color: var(--text-alpha-25);
 }
 
 @import 'messageSource.scss';

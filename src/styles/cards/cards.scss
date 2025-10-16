@@ -3,7 +3,7 @@
 .cardSlider {
   padding: 0 50px;
   position: relative;
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) calc(100% - 100px), rgba(0,0,0,0) calc(100% - 50px));
+  mask-image: linear-gradient(to left, var(--mask-black) calc(100% - 100px), var(--mask-transparent) calc(100% - 50px));
   mask-repeat: no-repeat;
   mask-size: calc(100% + 100px) 100%;
   mask-position: 0px 0px;
@@ -14,7 +14,7 @@
     padding-bottom: 10px;
     width: 100%;
     overflow: auto;
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) calc(100% - 50px), rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to right, var(--mask-black) calc(100% - 50px), var(--mask-transparent) 100%);
     mask-repeat: no-repeat;
     mask-size: calc(100% + 100px) 100%;
     mask-position: -100px 0;
@@ -52,7 +52,7 @@
       left: 6px;
       top: 9px;
       border-radius: 99px;
-      background: rgba(0, 0, 0, 0.33);
+      background: var(--bullet-color);
     }
   }
 }
@@ -60,9 +60,9 @@
 
 .card {
   width: 100%;
-  background: #EEEEEA;
-  border: 1px solid #FFFFFF;
-  box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.03);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  box-shadow: 0px 10px 15px 5px var(--shadow-light);
   border-radius: 10px;
   padding: 10px;
   font-size: 0.96em;

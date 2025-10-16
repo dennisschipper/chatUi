@@ -8,6 +8,7 @@ import { IMessage, IMessageSuggestion } from '../../types'
 import { IMessageSuggestionsTitleProps } from '../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 import { IMessageProps } from '../Message/Message'
 import { IMessageSuggestionsProps } from '../Message/MessageSuggestions/MessageSuggestions'
+import { Theme } from '../../helpers/theme'
 
 export interface IMessagesProps {
   blockScrolling?: boolean
@@ -16,6 +17,7 @@ export interface IMessagesProps {
   noMessages?: { text?: string, component?: ReactNode }
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
+  theme?: Theme
 
   messageProps?: Pick<IMessageProps, 'component'>
   messageSuggestionsProps?: Partial<IMessageSuggestionsProps>
@@ -85,7 +87,7 @@ export const Messages = (props: IMessagesProps) => {
   const text = props.noMessages?.text
   
   return (
-    <div className="weaviate-chat-ui messages">
+    <div className="weaviate-chat-ui messages" data-theme={props.theme || 'light'}>
       <NewChatEntryNotification display={!fullyScrolled && newMessages && !!props.blockScrolling} onClick={onClickEntryNotification} />
       <NoContent display={displayEmpty} text={text} component={component} />
       <MessageList 

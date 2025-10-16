@@ -2,11 +2,12 @@ import '../../styles/cards/index.scss'
 import { useState, useRef, useEffect, ReactNode } from "react"
 import { Card } from "../Card/Card"
 import { AnimatePresence, motion } from "motion/react"
-import { defaultMotionProps as motionProps } from "../../helpers"
+import { defaultMotionProps as motionProps, Theme } from "../../helpers"
 
 interface ICardsProps {
   display?: boolean
   cards: ReactNode[]
+  theme?: Theme
 }
 
 export const Cards = (props: ICardsProps) => {
@@ -46,7 +47,7 @@ export const Cards = (props: ICardsProps) => {
     <AnimatePresence>
       { !display &&
         <motion.div {...motionProps}>
-          <div className={`weaviate-chat-ui cardSlider ${position.left ? 'left' : ''}`}>
+          <div className={`weaviate-chat-ui cardSlider ${position.left ? 'left' : ''}`} data-theme={props.theme || 'light'}>
             <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
               <ul ref={ulRef}>
                 {cards}

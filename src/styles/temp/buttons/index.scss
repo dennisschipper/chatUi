@@ -1,7 +1,7 @@
 button {
   border-radius: $space;
-  background: #333;
-  color: #fff;
+  background: var(--button-bg);
+  color: var(--button-text);
   min-height: $uiMinHeight;
   min-width: $uiMinHeight;
   padding: 0 $space;

@@ -1,9 +1,9 @@
 .messageSuggestions {
-  background: radial-gradient(50% 50% at 50% 50%, #EFEFEF 0%, #EEEEEA 100%);
-  box-shadow: 0px 10px 65px 10px rgba(0, 0, 0, 0.07);
+  background: radial-gradient(50% 50% at 50% 50%, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  box-shadow: 0px 10px 65px 10px var(--shadow-medium);
   padding: 0 10px;
   border-radius: 10px;
-  border: 1px solid #fff;
+  border: 1px solid var(--border-primary);
 
   header {
     min-height: 40px;
@@ -13,7 +13,7 @@
 
   ul {
     li {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid var(--border-alpha-10);
       min-height: 40px;
       align-items: center;
     }

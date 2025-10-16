@@ -3,13 +3,14 @@ import { AnimatePresence, motion } from "motion/react"
 import { IRecentItem } from "../../types"
 import { IRecentHeaderProps, RecentHeader } from "./RecentHeader/RecentHeader"
 import { RecentItem } from "./RecentItem/RecentItem"
-import { defaultMotionProps as motionProps } from "../../helpers"
+import { defaultMotionProps as motionProps, Theme } from "../../helpers"
 
 interface IRecentProps {
   recentItems: IRecentItem[]
   onClick: (recentItem: IRecentItem) => void
   header?: IRecentHeaderProps
   display?: boolean
+  theme?: Theme
 }
 
 export const Recent = (props: IRecentProps) => {
@@ -26,7 +27,7 @@ export const Recent = (props: IRecentProps) => {
   return (
     <AnimatePresence>
       { !display &&
-        <motion.div {...motionProps} className="weaviate-chat-ui recent">
+        <motion.div {...motionProps} className="weaviate-chat-ui recent" data-theme={props.theme || 'light'}>
           <RecentHeader {...props.header} />
           <hr />
           <ul className="recentsList">

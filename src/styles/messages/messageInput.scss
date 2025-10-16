@@ -28,7 +28,7 @@
     line-height: 24px;
     padding-top: 10px;
     padding-bottom: 10px;
-    &::placeholder { color: rgba(0, 0, 0, 0); }
+    &::placeholder { color: var(--text-transparent); }
   }
 
   button {

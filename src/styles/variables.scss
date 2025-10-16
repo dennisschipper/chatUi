@@ -1,0 +1,71 @@
+.weaviate-chat-ui[data-theme="light"] {
+  --bg-primary: #EEEEEA;
+  --bg-secondary: #EFEFEF;
+  --bg-tertiary: #EDEDED;
+  --bg-quaternary: #D1D1D1;
+  --bg-white: #FFFFFF;
+
+  --bg-gradient-start: #EFEFEF;
+  --bg-gradient-end: #EEEEEA;
+
+  --border-primary: #FFFFFF;
+  --border-secondary: #DFDFDF;
+  --border-tertiary: #3C4038;
+  --border-alpha-10: rgba(0, 0, 0, 0.1);
+
+  --text-primary: #42424B;
+  --text-alpha-25: rgba(0, 0, 0, 0.25);
+  --text-alpha-33: rgba(0, 0, 0, 0.33);
+  --text-transparent: rgba(0, 0, 0, 0);
+
+  --shadow-light: rgba(0, 0, 0, 0.03);
+  --shadow-medium: rgba(0, 0, 0, 0.07);
+  --shadow-dark: rgba(0, 0, 0, 0.08);
+
+  --mask-black: rgba(0, 0, 0, 1);
+  --mask-transparent: rgba(0, 0, 0, 0);
+
+  --bullet-color: rgba(0, 0, 0, 0.33);
+
+  --button-bg: #333;
+  --button-text: #fff;
+
+  --accent-yellow: #EDCB59;
+  --accent-green: #3FD288;
+}
+
+.weaviate-chat-ui[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #333333;
+  --bg-quaternary: #404040;
+  --bg-white: #2a2a2a;
+
+  --bg-gradient-start: #2a2a2a;
+  --bg-gradient-end: #1a1a1a;
+
+  --border-primary: #404040;
+  --border-secondary: #333333;
+  --border-tertiary: #555555;
+  --border-alpha-10: rgba(255, 255, 255, 0.1);
+
+  --text-primary: #e0e0e0;
+  --text-alpha-25: rgba(255, 255, 255, 0.25);
+  --text-alpha-33: rgba(255, 255, 255, 0.33);
+  --text-transparent: rgba(255, 255, 255, 0);
+
+  --shadow-light: rgba(0, 0, 0, 0.2);
+  --shadow-medium: rgba(0, 0, 0, 0.4);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+
+  --mask-black: rgba(0, 0, 0, 1);
+  --mask-transparent: rgba(0, 0, 0, 0);
+
+  --bullet-color: rgba(255, 255, 255, 0.33);
+
+  --button-bg: #555;
+  --button-text: #fff;
+
+  --accent-yellow: #EDCB59;
+  --accent-green: #3FD288;
+}

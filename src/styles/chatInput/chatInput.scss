@@ -1,9 +1,9 @@
 .chatInput {
-  border: 1px solid #fff;
-  background: #EEEEEA;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-primary);
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 10px 65px 10px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 10px 65px 10px var(--shadow-medium);
 
   // Temp.
   max-width: calc(100% - 100px);
@@ -13,18 +13,18 @@
   gap: 10px;
   
   .textInputContainer {
-    border: 1px solid #3C4038;
+    border: 1px solid var(--border-tertiary);
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 4px 10px var(--shadow-dark);
     flex: 0 1;
     position: relative;
     min-height: 50px;
-    background: #EDEDED;
+    background: var(--bg-tertiary);
     flex-direction: row;
     padding-right: 10px;
 
     hr {
-      background: #D1D1D1;
+      background: var(--bg-quaternary);
       width: 1px;
       height: 100%;
       max-height: calc(100% - 20px);

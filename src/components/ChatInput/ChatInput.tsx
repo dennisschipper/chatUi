@@ -2,6 +2,7 @@ import { cloneElement, useRef, useState, type BaseSyntheticEvent, type KeyboardE
 import TextareaAutosize from 'react-textarea-autosize'
 import { ChatSubmit } from './ChatSubmit'
 import { Placeholder } from './Placeholder/Placeholder'
+import { Theme } from '../../helpers/theme'
 
 
 export type TChatInputProps = Omit<IChatInputProps, 'component'>
@@ -12,6 +13,7 @@ interface IChatInputProps {
   placeholder?: string
   controls?: ReactElement[]
   component?: ReactElement
+  theme?: Theme
 }
 
 export const ChatInput = (props: IChatInputProps) => {
@@ -56,7 +58,7 @@ export const ChatInput = (props: IChatInputProps) => {
   }
 
   return (
-    <div className="weaviate-chat-ui chatInput">
+    <div className="weaviate-chat-ui chatInput" data-theme={props.theme || 'light'}>
       <div className="textInputContainer">
         <Placeholder 
           onClick={onPlaceholderClick} 
