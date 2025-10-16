@@ -1,3 +1,7 @@
+// ! I was going through adding custom components and need to maybe just allow any
+// or maybe Optional<> for the types.
+
+
 import '../../styles/messages/index.scss'
 import { ReactNode, useEffect, useRef, useState } from "react"
 import { LoadMoreChatsButton } from "./LoadMoreChatsButton"
