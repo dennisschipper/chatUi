@@ -1,7 +1,3 @@
-// ! I was going through adding custom components and need to maybe just allow any
-// or maybe Optional<> for the types.
-
-
 import '../../styles/messages/index.scss'
 import { ReactNode, useEffect, useRef, useState } from "react"
 import { LoadMoreChatsButton } from "./LoadMoreChatsButton"
@@ -11,18 +7,19 @@ import { NoContent } from "./NoContent/NoContent"
 import { IMessage, IMessageSuggestion } from '../../types'
 import { IMessageSuggestionsTitleProps } from '../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 import { IMessageProps } from '../Message/Message'
+import { IMessageSuggestionsProps } from '../Message/MessageSuggestions/MessageSuggestions'
 
 export interface IMessagesProps {
   blockScrolling?: boolean
   maxItems?: number
   messages: IMessage[]
   noMessages?: { text?: string, component?: ReactNode }
-  title?: IMessageSuggestionsTitleProps
-
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
 
   messageProps?: Pick<IMessageProps, 'component'>
+  messageSuggestionsProps?: Partial<IMessageSuggestionsProps>
+  messageSuggestionsTitleProps?: Partial<IMessageSuggestionsTitleProps>
 }
 
 export const Messages = (props: IMessagesProps) => {
@@ -44,7 +41,6 @@ export const Messages = (props: IMessagesProps) => {
   }, [props.messages.length, props.blockScrolling])
 
   useEffect(() => {
-    // This is too eager to fire off.
     props.messages.length > 0 && scrollToNewEntries()
   }, [])
   
@@ -55,9 +51,7 @@ export const Messages = (props: IMessagesProps) => {
     
     // If new items were added, increase maxVisibleItems by the number of new items
     const newItemsCount = props.messages.length - prevItemsLength.current
-    if (newItemsCount > 0) {
-      updateMaxVisibleItems(prev => prev + newItemsCount)
-    }
+    if (newItemsCount > 0) updateMaxVisibleItems(prev => prev + newItemsCount)
     prevItemsLength.current = props.messages.length
   }, [props.messages.length])
 
@@ -100,10 +94,12 @@ export const Messages = (props: IMessagesProps) => {
         onScroll={onScroll} 
         header={chatHeader} 
         messages={props.messages}
-        title={props.title}
         onClickSuggestion={props.onClickSuggestion}
         onSubmitMeta={props.onSubmitMeta}
         messageProps={props.messageProps}
+        
+        messageSuggestionsProps={props.messageSuggestionsProps}
+        messageSuggestionsTitleProps={props.messageSuggestionsTitleProps}
       />
     </div>
   )

@@ -2,6 +2,7 @@ import { type ReactElement, type Ref } from 'react'
 import { IMessageProps, Message } from '../../Message/Message'
 import { IMessage, IMessageSuggestion } from '../../../types'
 import { IMessageSuggestionsTitleProps } from '../../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
+import { IMessageSuggestionsProps } from '../../Message/MessageSuggestions/MessageSuggestions'
 
 interface IMessageListProps {
   startIndex: number
@@ -9,11 +10,12 @@ interface IMessageListProps {
   header?: ReactElement
   ref: Ref<any>
   messages: IMessage[]
-  title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
 
-  messageProps: Pick<IMessageProps, 'component'>
+  messageProps?: Pick<IMessageProps, 'component'>
+  messageSuggestionsProps?: Partial<IMessageSuggestionsProps>
+  messageSuggestionsTitleProps?: Partial<IMessageSuggestionsTitleProps>
 }
 
 export const MessageList = (props: IMessageListProps) => {
@@ -23,10 +25,10 @@ export const MessageList = (props: IMessageListProps) => {
     <li key={message.id} className={message.source.title.toLowerCase()}>
       <Message 
         message={message} 
-        title={props.title}
         onClickSuggestion={props.onClickSuggestion}
         onSubmitMeta={props.onSubmitMeta}
-        {...props.messageProps} // Unsure
+        messageSuggestionsProps={props.messageSuggestionsProps}
+        messageSuggestionsTitleProps={props.messageSuggestionsTitleProps}
       />
     </li>
   ))

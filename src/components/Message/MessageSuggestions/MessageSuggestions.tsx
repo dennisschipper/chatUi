@@ -4,10 +4,11 @@ import { MessageSuggestion } from "./MessageSuggestion/MessageSuggestion"
 import { IMessageSuggestionsTitleProps, MessageSuggestionsTitle } from "./MessageSuggestionsTitle/MessageSuggestionsTitle"
 import { defaultMotionProps } from "../../../helpers"
 
-interface IMessageSuggestionsProps {
+export interface IMessageSuggestionsProps {
   message: IMessage
   title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
+  messageSuggestionsTitleProps?: Partial<IMessageSuggestionsTitleProps>
 }
 
 export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
@@ -36,7 +37,9 @@ export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
     <AnimatePresence>
       { display && 
         <motion.div {...motionProps} className="messageSuggestions" key={"hey"}>
-          <MessageSuggestionsTitle {...props.title} />
+          <MessageSuggestionsTitle 
+            { ...props.messageSuggestionsTitleProps } 
+          />
           <ul>
             {items}
           </ul>

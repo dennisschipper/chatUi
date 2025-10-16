@@ -2,7 +2,7 @@ import { MessageSource } from "../Messages/MessageSource/MessageSource"
 import { MessageInput } from "./MessageInput/MessageInput"
 import { IMessage, IMessageSuggestion } from "../../types"
 import { MessageContent } from "./MessageContent/MessageContent"
-import { MessageSuggestions } from "./MessageSuggestions/MessageSuggestions"
+import { IMessageSuggestionsProps, MessageSuggestions } from "./MessageSuggestions/MessageSuggestions"
 import { IMessageSuggestionsTitleProps } from "./MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle"
 import { AnimatePresence, motion, MotionProps } from "motion/react"
 import useMeasure from "react-use-measure"
@@ -12,10 +12,11 @@ export type TMessageProps = Omit<IMessageProps, 'component'>
 
 export interface IMessageProps {
   message: IMessage
-  title?: IMessageSuggestionsTitleProps
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
   component?: ReactElement<TMessageProps>
+  messageSuggestionsProps?: Partial<IMessageSuggestionsProps>
+  messageSuggestionsTitleProps?: Partial<IMessageSuggestionsTitleProps>
 }
 
 export const Message = (props: IMessageProps) => {
@@ -40,7 +41,6 @@ export const Message = (props: IMessageProps) => {
   if (props.component) {
     return cloneElement(props.component, {
       message: props.message,
-      title: props.title,
       onClickSuggestion: props.onClickSuggestion,
       onSubmitMeta: props.onSubmitMeta
     })
@@ -58,7 +58,8 @@ export const Message = (props: IMessageProps) => {
           <MessageSuggestions 
             onClickSuggestion={onClickSuggestion}
             message={message} 
-            title={props.title}
+            messageSuggestionsTitleProps={props.messageSuggestionsTitleProps}
+            {...props.messageSuggestionsProps}
           />
         </motion.div>
       </motion.div>
