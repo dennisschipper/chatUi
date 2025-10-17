@@ -8,7 +8,7 @@ import { AnimatePresence, motion, MotionProps } from "motion/react"
 import useMeasure from "react-use-measure"
 import { cloneElement, ReactElement } from "react"
 
-export type TMessageProps = Omit<IMessageProps, 'component'>
+export type TMessageProps = Partial<IMessageProps>
 
 export interface IMessageProps {
   message: IMessage

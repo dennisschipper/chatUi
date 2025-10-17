@@ -1,5 +1,5 @@
 import { type ReactElement, type Ref } from 'react'
-import { IMessageProps, Message } from '../../Message/Message'
+import { IMessageProps, Message, TMessageProps } from '../../Message/Message'
 import { IMessage, IMessageSuggestion } from '../../../types'
 import { IMessageSuggestionsTitleProps } from '../../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 import { IMessageSuggestionsProps } from '../../Message/MessageSuggestions/MessageSuggestions'
@@ -13,7 +13,7 @@ interface IMessageListProps {
   onClickSuggestion?: (suggestion: IMessageSuggestion, message: IMessage) => void
   onSubmitMeta?: (text: string) => void
 
-  messageProps?: Pick<IMessageProps, 'component'>
+  messageProps?: TMessageProps
   messageSuggestionsProps?: Partial<IMessageSuggestionsProps>
   messageSuggestionsTitleProps?: Partial<IMessageSuggestionsTitleProps>
 }
