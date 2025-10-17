@@ -4,12 +4,12 @@ import arrowRight from '../../../../assets/icons/arrowRight.svg'
 import { highlightText } from "../../../../helpers"
 import { cloneElement, KeyboardEventHandler, ReactElement } from "react"
 
-export type TMessageSuggestionExternalProps = Omit<IMessageSuggestionProps, 'component'>
+export type TMessageSuggestionProps = Partial<IMessageSuggestionProps>
 
 export interface IMessageSuggestionProps {
   suggestion: IMessageSuggestion
   onClick: (suggestion: IMessageSuggestion) => void
-  component?: ReactElement
+  component?: ReactElement<TMessageSuggestionProps>
 }
 
 export const MessageSuggestion = (props: IMessageSuggestionProps) => {
@@ -18,7 +18,7 @@ export const MessageSuggestion = (props: IMessageSuggestionProps) => {
   const highlightedText = highlightText({ text, highlights, highlightType: 'strong' })
 
   if (props.component) {
-    const component = cloneElement<any>(props.component, { onClick: props.onClick, suggestion: props.suggestion})
+    const component = cloneElement(props.component, { onClick: props.onClick, suggestion: props.suggestion})
     return component
   }
 

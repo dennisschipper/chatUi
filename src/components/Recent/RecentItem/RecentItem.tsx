@@ -3,13 +3,12 @@ import chat from '../../../assets/icons/chat.svg'
 import arrowRight from '../../../assets/icons/arrowRight.svg'
 import { ReactElement } from "react"
 
-
-export type TRecentItemProps = Omit<IRecentItemProps, 'component'>
+export type TRecentItemProps = Partial<IRecentItemProps>
 
 export interface IRecentItemProps {
   recentItem: IRecentItem
   onClick: (recentItem: IRecentItem) => void
-  component?: ReactElement
+  component?: ReactElement<TRecentItemProps>
 }
 
 export const RecentItem = (props: IRecentItemProps) => {

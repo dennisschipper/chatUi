@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { MessageSuggestion, TMessageSuggestionExternalProps } from "./MessageSuggestion";
+import { MessageSuggestion, TMessageSuggestionProps } from "./MessageSuggestion";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { IMessageSuggestion } from "../../../../types";
 
@@ -38,7 +38,7 @@ describe("<MessageSuggestion>", () => {
 
   it("Should render a custom component", () => {
     expect(onClickMock).toHaveBeenCalledTimes(0)
-    const Comp = (props: TMessageSuggestionExternalProps) => (
+    const Comp = (props: TMessageSuggestionProps) => (
       <div onClick={() => props.onClick(props.suggestion)}>
         Custom Component: {props.suggestion?.text}
       </div>

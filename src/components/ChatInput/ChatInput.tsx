@@ -5,14 +5,14 @@ import { Placeholder } from './Placeholder/Placeholder'
 import { Theme } from '../../helpers/theme'
 
 
-export type TChatInputProps = Omit<IChatInputProps, 'component'>
+export type TChatInputProps = Partial<IChatInputProps>
 
 interface IChatInputProps {
   onSubmit: (value: string) => void
   onChange?: (value: string) => void
   placeholder?: string
   controls?: ReactElement[]
-  component?: ReactElement
+  component?: ReactElement<TChatInputProps>
   theme?: Theme
 }
 
@@ -49,7 +49,7 @@ export const ChatInput = (props: IChatInputProps) => {
   const submitDisabled = !value.trim()
 
   if (props.component) {
-    return cloneElement<any>(props.component, { 
+    return cloneElement(props.component, { 
       onSubmit: props.onSubmit,
       onChange: props.onChange,
       placeholder: props.placeholder,

@@ -1,14 +1,14 @@
 import { cloneElement, ReactElement } from "react"
 
-export type TRecentHeaderProps = Omit<IRecentHeaderProps, 'component'>
+export type TRecentHeaderProps = Partial<IRecentHeaderProps>
 
 export interface IRecentHeaderProps {
   title?: string
-  component?: ReactElement
+  component?: ReactElement<TRecentHeaderProps>
 }
 export const RecentHeader = (props: IRecentHeaderProps) => {
   if (props.component) {
-    const component = cloneElement<any>(props.component, {...props, component: undefined})
+    const component = cloneElement(props.component, {...props, component: undefined})
     return component
   }
 
