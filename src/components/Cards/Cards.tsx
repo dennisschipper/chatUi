@@ -1,14 +1,19 @@
 import '../../styles/cards/index.scss'
-import { useState, useRef, useEffect, ReactNode } from "react"
-import { Card } from "../Card/Card"
+import { useState, useRef, useEffect, ReactNode, ReactElement, cloneElement } from "react"
+import { Card, TCardProps } from "../Card/Card"
 import { AnimatePresence, motion } from "motion/react"
 import { defaultMotionProps as motionProps, Theme } from "../../helpers"
+
+export type TCardsProps = Partial<Omit<ICardsProps, 'component'>>
 
 interface ICardsProps {
   display?: boolean
   cards: ReactNode[]
   theme?: Theme
+  component?: ReactElement<TCardsProps>
+  cardProps?: TCardProps
 }
+
 
 export const Cards = (props: ICardsProps) => {
   const [ position, updatePosition ] = useState<{left: boolean, right: boolean}>({
@@ -36,16 +41,22 @@ export const Cards = (props: ICardsProps) => {
   const cards = props.cards.map(
     (card, i) => (
       <li key={i}>
-        <Card>{card}</Card>
+        <Card {...props.cardProps}>{card}</Card>
       </li>
     )
   )
 
-  const display = props.display === false
+  if (props.component) {
+    return cloneElement(props.component, { 
+      cards: props.cards,
+      display: props.display,
+      theme: props.theme
+    })
+  }
 
   return (
     <AnimatePresence>
-      { !display &&
+      { !!props.display &&
         <motion.div {...motionProps}>
           <div className={`weaviate-chat-ui cardSlider ${position.left ? 'left' : ''}`} data-theme={props.theme || 'light'}>
             <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
