@@ -49,7 +49,7 @@ export const Message = (props: IMessageProps) => {
   return (
     <AnimatePresence>
       <motion.div className="chatui-messageWrapper" {...wrapperMotionProps}>
-        <motion.div {...motionProps} className="message" ref={ref}>
+        <motion.div {...motionProps} className="chatui-message" ref={ref}>
           <MessageSource {...message.source} />
           <div className="chatui-messageBody">
             <MessageContent message={message}  />

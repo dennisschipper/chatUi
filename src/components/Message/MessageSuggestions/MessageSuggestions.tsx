@@ -36,7 +36,7 @@ export const MessageSuggestions = (props: IMessageSuggestionsProps) => {
   return (
     <AnimatePresence>
       { display && 
-        <motion.div {...motionProps} className="messageSuggestions" key={"hey"}>
+        <motion.div {...motionProps} className="chatui-messageSuggestions" key={"x"}>
           <MessageSuggestionsTitle 
             { ...props.messageSuggestionsTitleProps } 
           />

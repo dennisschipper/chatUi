@@ -8,14 +8,4 @@ button.chatui-button {
   &:disabled { cursor: not-allowed; }
 }
 
-.blank {
-  display: flex;
-  border-radius: initial;
-  background: none;
-  color: inherit;
-  min-height: initial;
-  min-width: initial;
-  padding: 0;
-}
-
 @import 'chatSubmit';

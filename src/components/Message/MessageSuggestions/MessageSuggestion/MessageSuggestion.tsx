@@ -28,7 +28,7 @@ export const MessageSuggestion = (props: IMessageSuggestionProps) => {
 
   return (
     <div 
-      className="messageSuggestion" 
+      className="chatui-messageSuggestion" 
       onClick={onClick} 
       onKeyDown={onKeyDown}
       tabIndex={0}
