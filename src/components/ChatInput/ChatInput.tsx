@@ -1,4 +1,4 @@
-import { cloneElement, useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
+import { cloneElement, ReactNode, useRef, useState, type BaseSyntheticEvent, type KeyboardEventHandler, type ReactElement } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { ChatSubmit } from './ChatSubmit'
 import { Placeholder } from './Placeholder/Placeholder'
@@ -14,6 +14,7 @@ interface IChatInputProps {
   controls?: ReactElement[]
   component?: ReactElement<TChatInputProps>
   theme?: Theme
+  inputControls?: ReactNode
 }
 
 export const ChatInput = (props: IChatInputProps) => {
@@ -77,10 +78,14 @@ export const ChatInput = (props: IChatInputProps) => {
         <hr />
         <ChatSubmit onClick={handleSubmit} disabled={submitDisabled} />
       </div>
-      <hr />
-      <div className="inputControls">
-        Powered by Weaviate
-      </div>
+      { props.inputControls &&
+      <>
+        <hr />
+        <div className="inputControls">
+          {props.inputControls}
+        </div>
+      </>
+      }
     </div>
   )
 }

@@ -43,6 +43,10 @@
     padding-top: 9px;
     padding-bottom: 9px;
     border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--button-text);
     &::placeholder { opacity: 0; }
   }
 }
