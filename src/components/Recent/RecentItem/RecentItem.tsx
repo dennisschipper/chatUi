@@ -21,7 +21,7 @@ export const RecentItem = (props: IRecentItemProps) => {
   }
   
   return (
-    <div className="recentItem" onClick={onClick} tabIndex={0} onKeyDown={onKeyDown}>
+    <div className="chatui-recentItem" onClick={onClick} tabIndex={0} onKeyDown={onKeyDown}>
       <div className="icon">
         <img src={chat} alt="" />
       </div>

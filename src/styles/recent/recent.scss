@@ -1,4 +1,4 @@
-.recent {
+.chatui-recent {
   margin: 0 50px;
   margin-bottom: 10px;
   padding: 0 10px;
@@ -18,7 +18,7 @@
   }
 }
 
-ul.recentsList {
+ul.chatui-recentsList {
   display: flex;
   flex-direction: column;
   
@@ -29,12 +29,10 @@ ul.recentsList {
     align-items: center;
   }
 
-  > li + li {
-    border-top: 1px solid var(--border-secondary);
-  }
+  > li + li { border-top: 1px solid var(--border-secondary); }
 }
 
-.recentItem {
+.chatui-recentItem {
   flex: 1 0 auto;
   cursor: pointer;
   flex-direction: row;
@@ -50,9 +48,7 @@ ul.recentsList {
     white-space: nowrap;
   }
 
-  .icon {
-    margin-left: -5px;
-  }
+  .icon { margin-left: -5px; }
 
   .icon, .iconEnd {
     width: 40px;
@@ -67,8 +63,6 @@ ul.recentsList {
   }
 
   &:hover, &:focus {
-    img {
-      opacity: 1;
-    }
+    img { opacity: 1; }
   }
 }

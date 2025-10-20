@@ -1,4 +1,4 @@
-.messageInput {
+.chatui-messageInput {
   margin-bottom: -10px;
 
   .inputWrapper {
@@ -20,7 +20,7 @@
     margin-left: -10px;
   }
 
-  textarea {
+  textarea.chatui-textarea {
     background: none;
     border: 0px;
     resize: none;
@@ -41,5 +41,5 @@
     justify-content: center;
   }
 
-  .placeholder { left: 0; }
+  .chatui-placeholder { left: 0; }
 }

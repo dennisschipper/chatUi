@@ -4,7 +4,7 @@ interface IMessageSourceThumbProps {
 
 export const MessageSourceThumb = (props: IMessageSourceThumbProps) => {
   return !props.icon ? null : (
-    <div className="messageSourceThumb">
+    <div className="chatui-messageSourceThumb">
       <img src={props.icon} alt="icon" />
     </div> 
   )

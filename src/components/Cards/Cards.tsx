@@ -54,12 +54,27 @@ export const Cards = (props: ICardsProps) => {
     })
   }
 
+  const cardSliderClassName = `
+    weaviate-chat-ui 
+    chatui-cardSlider 
+    ${position.left ? 'left' : ''}
+  `
+
+  const cardWrapperClassName = `
+    chatui-cardWrapper 
+    ${position.right ? 'right' : ''}
+  `
+
   return (
     <AnimatePresence>
       { !!props.display &&
         <motion.div {...motionProps}>
-          <div className={`weaviate-chat-ui cardSlider ${position.left ? 'left' : ''}`} data-theme={props.theme || 'light'}>
-            <div className={`cardWrapper ${position.right ? 'right' : ''}`} ref={wrapperRef} onScroll={updateScrollPosition}>
+          <div className={cardSliderClassName} data-theme={props.theme || 'light'}>
+            <div 
+              className={cardWrapperClassName} 
+              ref={wrapperRef} 
+              onScroll={updateScrollPosition}
+            >
               <ul ref={ulRef}>
                 {cards}
               </ul>

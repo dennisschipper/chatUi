@@ -7,7 +7,7 @@ interface IMessageSourceProps extends IMessageSource {
 
 export const MessageSource = (props: IMessageSourceProps) => {
   const { title, icon } = props
-  const className = `messageSource ${title === "You" ? 'right' : ''}`
+  const className = `chatui-messageSource ${title === "You" ? 'right' : ''}`
   return (
     <div className={className}>
       <MessageSourceThumb icon={icon} />

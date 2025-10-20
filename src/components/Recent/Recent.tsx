@@ -27,10 +27,10 @@ export const Recent = (props: IRecentProps) => {
   return (
     <AnimatePresence>
       { !display &&
-        <motion.div {...motionProps} className="weaviate-chat-ui recent" data-theme={props.theme || 'light'}>
+        <motion.div {...motionProps} className="weaviate-chat-ui chatui-recent" data-theme={props.theme || 'light'}>
           <RecentHeader {...props.header} />
-          <hr />
-          <ul className="recentsList">
+          <hr className="chatui-hr" />
+          <ul className="chatui-recentsList">
             {recentItems}
           </ul>
         </motion.div>

@@ -1,4 +1,4 @@
-.messageSource {
+.chatui-messageSource {
   flex-direction: row;
   align-items: center;
   gap: 10px;
@@ -8,11 +8,11 @@
 
   &.right {
     justify-content: flex-end;
-    .messageSourceThumb { order: 1; }
+    .chatui-messageSourceThumb { order: 1; }
   }
 }
 
-.messageSourceThumb {
+.chatui-messageSourceThumb {
   align-items: center;
   justify-content: center;
   border-radius: 10px;

@@ -7,7 +7,7 @@ interface IChatSubmitProps {
 
 export const ChatSubmit = (props: IChatSubmitProps) => {
   return (
-    <button onClick={props.onClick} className="chatSubmit" disabled={props.disabled}>
+    <button onClick={props.onClick} className="chatui-chatSubmit" disabled={props.disabled}>
       <img src={submit} alt="" />
     </button>
   )

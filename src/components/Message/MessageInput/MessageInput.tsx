@@ -41,8 +41,8 @@ export const MessageInput = (props: IMessageInputProps) => {
 
   return props.display === false ? null : (
     <>
-      <div className="messageInput">
-        <hr />
+      <div className="chatui-messageInput">
+        <hr className="chatui-hr" />
         <div className="inputWrapper">
           <div className="icon">
             <img src={chatBubble} alt="" />
@@ -54,6 +54,7 @@ export const MessageInput = (props: IMessageInputProps) => {
               text={placeholder} 
             />
             <TextareaAutosize 
+              className="chatui-textarea"
               ref={ref} 
               value={value}
               placeholder={placeholder} 
@@ -63,7 +64,7 @@ export const MessageInput = (props: IMessageInputProps) => {
               onKeyDown={onKeyDown}
             />
           </div>
-          <button className="blank" disabled={disabled}>
+          <button className="chatui-chatSubmit" disabled={disabled}>
             <img src={submit} />
           </button>
         </div>

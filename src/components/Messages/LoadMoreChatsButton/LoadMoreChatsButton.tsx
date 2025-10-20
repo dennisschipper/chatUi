@@ -6,7 +6,7 @@ interface ILoadMoreChatsButtonProps {
 
 export const LoadMoreChatsButton = (props: ILoadMoreChatsButtonProps) => {
   return !props.display ? null : (
-    <button onClick={props.onClick} className="loadMoreChatsButton">
+    <button onClick={props.onClick} className="chatui-button chatui-loadMoreChatsButton">
       Load {props.count} more items
     </button>
   )

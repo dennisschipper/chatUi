@@ -87,7 +87,7 @@ export const Messages = (props: IMessagesProps) => {
   const text = props.noMessages?.text
   
   return (
-    <div className="weaviate-chat-ui messages" data-theme={props.theme || 'light'}>
+    <div className="weaviate-chat-ui chatui-messages" data-theme={props.theme || 'light'}>
       <NewChatEntryNotification display={!fullyScrolled && newMessages && !!props.blockScrolling} onClick={onClickEntryNotification} />
       <NoContent display={displayEmpty} text={text} component={component} />
       <MessageList 

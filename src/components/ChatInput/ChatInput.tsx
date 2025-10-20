@@ -59,14 +59,15 @@ export const ChatInput = (props: IChatInputProps) => {
   }
 
   return (
-    <div className="weaviate-chat-ui chatInput" data-theme={props.theme || 'light'}>
-      <div className="textInputContainer">
+    <div className="weaviate-chat-ui chatui-chatInput" data-theme={props.theme || 'light'}>
+      <div className="chatui-textInputContainer">
         <Placeholder 
           onClick={onPlaceholderClick} 
           text={props.placeholder ?? "Type a message..."} 
           active={!focused && !value.length}
         />
         <TextareaAutosize
+          className="chatui-textarea"
           ref={inputRef}
           value={value}
           onChange={onChange}
@@ -75,13 +76,13 @@ export const ChatInput = (props: IChatInputProps) => {
           onFocus={onFocus}
           onBlur={onBlur}
         />
-        <hr />
+        <hr className="chatui-hr" />
         <ChatSubmit onClick={handleSubmit} disabled={submitDisabled} />
       </div>
       { props.inputControls &&
       <>
-        <hr />
-        <div className="inputControls">
+        <hr className="chatui-hr" />
+        <div className="chatui-inputControls">
           {props.inputControls}
         </div>
       </>

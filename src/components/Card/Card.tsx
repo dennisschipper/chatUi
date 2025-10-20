@@ -15,7 +15,7 @@ export const Card = (props: ICardProps) => {
   }
   
   return (
-    <motion.div {...motionProps} className="card">
+    <motion.div {...motionProps} className="chatui-card">
       {props.children}
     </motion.div>
   )

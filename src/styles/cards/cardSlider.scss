@@ -1,0 +1,35 @@
+.chatui-cardSlider {
+  padding: 0 50px;
+  position: relative;
+  mask-image: linear-gradient(to left, var(--mask-black) calc(100% - 100px), var(--mask-transparent) calc(100% - 50px));
+  mask-repeat: no-repeat;
+  mask-size: calc(100% + 100px) 100%;
+  mask-position: 0px 0px;
+  transition: mask-position 0.5s ease-in-out;
+  &.left { mask-position: -100px 0px}
+
+  .chatui-cardWrapper {
+    padding-bottom: 10px;
+    width: 100%;
+    overflow: auto;
+    mask-image: linear-gradient(to right, var(--mask-black) calc(100% - 50px), var(--mask-transparent) 100%);
+    mask-repeat: no-repeat;
+    mask-size: calc(100% + 100px) 100%;
+    mask-position: -100px 0;
+    transition: mask-position 0.5s ease-in-out;
+    &.right { mask-position: 0 0; }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  ul > li {
+    display: flex;
+    flex-shrink: 0;
+    width: 250px;
+  }
+}

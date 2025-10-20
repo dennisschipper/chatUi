@@ -1,0 +1,16 @@
+.chatui-card {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  box-shadow: 0px 10px 15px 5px var(--shadow-light);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.96em;
+  line-height: 160%;
+  gap: 5px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+}

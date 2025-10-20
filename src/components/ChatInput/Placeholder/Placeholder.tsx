@@ -19,7 +19,7 @@ export const Placeholder = (props: IPlaceholderProps) => {
   }
 
   return (
-    <motion.div className="placeholder" {...motionProps} onClick={props.onClick}>
+    <motion.div className="chatui-placeholder" {...motionProps} onClick={props.onClick}>
       <span>{props.text}</span>
     </motion.div>
   )

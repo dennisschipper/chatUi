@@ -1,5 +1,5 @@
 import { type ReactElement, type Ref } from 'react'
-import { IMessageProps, Message, TMessageProps } from '../../Message/Message'
+import { Message, TMessageProps } from '../../Message/Message'
 import { IMessage, IMessageSuggestion } from '../../../types'
 import { IMessageSuggestionsTitleProps } from '../../Message/MessageSuggestions/MessageSuggestionsTitle/MessageSuggestionsTitle'
 import { IMessageSuggestionsProps } from '../../Message/MessageSuggestions/MessageSuggestions'
@@ -34,9 +34,9 @@ export const MessageList = (props: IMessageListProps) => {
   ))
 
   return !display ? null : (
-    <div className="messageScroller" onScroll={props.onScroll} ref={props.ref}>
+    <div className="chatui-messageScroller" onScroll={props.onScroll} ref={props.ref}>
       {props.header}
-      <ul className="messageList">
+      <ul className="chatui-messageList">
         {items}
       </ul>
     </div>

@@ -48,10 +48,10 @@ export const Message = (props: IMessageProps) => {
   
   return (
     <AnimatePresence>
-      <motion.div className="messageWrapper" {...wrapperMotionProps}>
+      <motion.div className="chatui-messageWrapper" {...wrapperMotionProps}>
         <motion.div {...motionProps} className="message" ref={ref}>
           <MessageSource {...message.source} />
-          <div className="messageBody">
+          <div className="chatui-messageBody">
             <MessageContent message={message}  />
             <MessageInput display={displayMeta} onSubmit={onSubmitMeta} />
           </div>
