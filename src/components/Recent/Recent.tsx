@@ -16,7 +16,7 @@ interface IRecentProps {
 export const Recent = (props: IRecentProps) => {
   const recentItems = props.recentItems.map(
     (item, i) => (
-      <li key={i}>
+      <li key={item.id || i}>
         <RecentItem recentItem={item} onClick={props.onClick} />
       </li>
     )
